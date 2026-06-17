@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found — sky</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#08080a" media="(prefers-color-scheme: dark)" />
+  <script>document.documentElement.className = "js";</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="sky — home"><span class="brand__dot" aria-hidden="true"></span>sky</a>
+      <nav class="nav__links" data-nav-links aria-label="Primary">
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="work.html">Work</a>
+        <a class="nav__link" href="about.html">About</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary" href="about.html#contact">Let's talk</a>
+        <button class="icon-btn nav__burger" data-burger type="button" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="min-height:60vh;display:grid;place-items:center;text-align:center">
+      <div class="container">
+        <span class="eyebrow eyebrow--accent" style="justify-content:center">Error 404</span>
+        <h1 style="margin-top:var(--space-md)">This page wandered off.</h1>
+        <p class="hero__lead" style="margin:var(--space-md) auto 0;max-width:46ch">The page you're looking for doesn't exist or has moved. Let's get you back on track.</p>
+        <div class="hero__actions" style="justify-content:center;margin-top:var(--space-xl)">
+          <a class="btn btn--accent" href="index.html">Back to home
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="work.html">View work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script defer src="script.js"></script>
+</body>
+</html>
