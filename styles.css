@@ -321,24 +321,41 @@ strong { color: var(--ink); font-weight: 600; }
 .card > * + * { margin-top: var(--space-sm); }
 .card p { color: var(--ink-2); }
 
-/* Figure */
+/* Figure — clean premium image card, plain caption below */
 figure { margin: 0; }
 .figure {
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
+  margin: 48px 0;
+  border-radius: 24px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
 }
-.figure img { width: 100%; display: block; }
-.figure--pad { padding: clamp(1rem, 3vw, 2.5rem); }
-figcaption {
-  font-size: var(--step--1);
-  color: var(--muted);
-  margin-top: var(--space-sm);
-  display: flex;
-  gap: 0.5rem;
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.10);
+  transition: transform 250ms ease, box-shadow 250ms ease;
 }
-figcaption::before { content: "—"; color: var(--line-strong); }
+.figure:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.14);
+}
+.figure--pad { padding: 0; }
+.figure figcaption {
+  margin-top: 18px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+  display: block;
+}
+.figure figcaption::before { content: none; }
 
 /* Stat / metric */
 .stat__value {
@@ -1050,3 +1067,86 @@ figcaption::before { content: "—"; color: var(--line-strong); }
 .subfeature-card__body .subfeature__lead { width: 1.2rem; height: 1.2rem; color: var(--accent-ink); flex: none; }
 .subfeature-card__arr { margin-left: auto; width: 1rem; height: 1rem; color: var(--muted); flex: none; transition: transform 0.25s var(--ease); }
 .subfeature-card:hover .subfeature-card__arr { transform: translateX(2px); color: var(--accent-ink); }
+
+/* ---------------------------------------------------------------
+   11. WORKING SESSIONS CAROUSEL (case study — opportunities)
+   --------------------------------------------------------------- */
+[data-carousel-wrap] { position: relative; }
+.sessions__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-md); margin-bottom: var(--space-lg); flex-wrap: wrap;
+}
+.sessions__bar h3 { font-size: var(--step-2); }
+
+/* Arrows: Framer-style translucent circles overlapping the card edges */
+.carousel__nav { display: contents; }
+.carousel__btn {
+  position: absolute;
+  top: calc(50% + 1.6rem);
+  transform: translateY(-50%);
+  z-index: 20;
+  border: none;
+  display: grid; place-content: center; place-items: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  margin: 0; padding: 0;
+  width: 40px; height: 40px; border-radius: 40px;
+  cursor: pointer;
+  transition: opacity 0.25s var(--ease), background 0.2s var(--ease);
+}
+.carousel__btn:hover { background: rgba(0, 0, 0, 0.32); }
+.carousel__btn svg { width: 18px; height: 18px; }
+[data-carousel-prev] { left: 16px; }
+[data-carousel-next] { right: 16px; }
+.carousel__btn[disabled] { opacity: 0; pointer-events: none; visibility: hidden; }
+
+.carousel {
+  display: flex; gap: var(--space-md);
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 0.25rem 0.25rem 1.25rem;
+  margin: 0 -0.25rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent;
+}
+.carousel::-webkit-scrollbar { height: 8px; }
+.carousel::-webkit-scrollbar-track { background: var(--surface-2); border-radius: var(--r-full); }
+.carousel::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: var(--r-full); }
+
+.session-card {
+  flex: 0 0 clamp(280px, 80vw, 360px);
+  scroll-snap-align: start;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: var(--space-lg);
+  display: flex; flex-direction: column; gap: var(--space-md);
+}
+.session-card__head { min-height: 5.5rem; }
+.session-card__head > * + * { margin-top: var(--space-sm); }
+.session-card__title { font-size: var(--step-1); }
+/* Fixed top-content height so the dotted divider aligns across every card */
+.session-card > div:not([class]) { min-height: 13.5rem; }
+.session-card__metrics { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); }
+.avatars { display: flex; align-items: center; }
+.avatars img {
+  width: 1.7rem; height: 1.7rem; border-radius: 50%;
+  border: 2px solid var(--surface); margin-left: -0.55rem;
+  object-fit: cover; background: var(--surface-2);
+}
+.avatars img:first-child { margin-left: 0; }
+.votes {
+  font-family: var(--font-mono); font-size: var(--step--1); font-weight: 600;
+  color: var(--accent-ink); background: var(--accent-soft);
+  padding: 0.25rem 0.65rem; border-radius: var(--r-full); white-space: nowrap;
+}
+.session-card__lead { font-weight: 600; color: var(--ink); }
+.session-card__details { display: grid; gap: 0.3rem; margin-top: var(--space-sm); }
+.session-card__details li { font-size: var(--step--1); color: var(--ink-2); padding-left: var(--space-md); position: relative; }
+.session-card__details li::before { content: "·"; position: absolute; left: 0.3rem; color: var(--muted); }
+.session-card .dash { border: 0; border-top: 2px dashed var(--line-strong); margin: 0.25rem 0; }
+.admin-voice__label {
+  font-size: 12px; font-weight: 700; line-height: 22px;
+  letter-spacing: 0; text-transform: none; color: rgb(82, 82, 91);
+}
+.admin-voice blockquote { margin: var(--space-xs) 0 0; }
+.admin-voice blockquote p { font-size: var(--step--1); color: var(--ink-2); font-style: italic; }
+.admin-voice blockquote p + p { margin-top: var(--space-sm); }

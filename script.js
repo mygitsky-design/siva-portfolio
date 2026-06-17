@@ -205,6 +205,56 @@
     nums.forEach((n) => io.observe(n));
   })();
 
+  /* ---------- Carousels: arrow visibility + locked-divider alignment ---------- */
+  (function carousels() {
+    document.querySelectorAll("[data-carousel]").forEach((track) => {
+      const wrap = track.closest("[data-carousel-wrap]") || track.parentElement;
+      const prev = wrap.querySelector("[data-carousel-prev]");
+      const next = wrap.querySelector("[data-carousel-next]");
+
+      const step = () => {
+        const card = track.querySelector(":scope > *");
+        const gap = parseFloat(getComputedStyle(track).columnGap || "16") || 16;
+        return card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+      };
+      const update = () => {
+        if (!prev || !next) return;
+        const max = track.scrollWidth - track.clientWidth - 2;
+        prev.disabled = track.scrollLeft <= 2;       // hidden at the start
+        next.disabled = track.scrollLeft >= max;     // hidden at the end
+      };
+      if (prev) prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+      if (next) next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+
+      // Equalize each card's top section so the dotted divider locks to the same Y.
+      const equalize = () => {
+        const cards = Array.from(track.querySelectorAll(".session-card"));
+        if (!cards.length) return;
+        const heads = [], bodies = [];
+        cards.forEach((c) => {
+          const h = c.querySelector(".session-card__head");
+          const b = h && h.nextElementSibling;        // the lead + details block
+          if (h) { h.style.minHeight = "0"; heads.push(h); }
+          if (b) { b.style.minHeight = "0"; bodies.push(b); }
+        });
+        let mh = 0, mb = 0;
+        heads.forEach((h) => (mh = Math.max(mh, h.getBoundingClientRect().height)));
+        bodies.forEach((b) => (mb = Math.max(mb, b.getBoundingClientRect().height)));
+        heads.forEach((h) => (h.style.minHeight = Math.ceil(mh) + "px"));
+        bodies.forEach((b) => (b.style.minHeight = Math.ceil(mb) + "px"));
+      };
+
+      const refresh = () => { equalize(); update(); };
+      track.addEventListener("scroll", update, { passive: true });
+
+      let t;
+      window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(refresh, 120); }, { passive: true });
+      window.addEventListener("load", refresh);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+      refresh();
+    });
+  })();
+
   /* ---------- Current year ---------- */
   (function year() {
     const el = document.querySelector("[data-year]");
