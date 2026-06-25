@@ -25,6 +25,7 @@
   <script>document.documentElement.className = "js";</script>
   <link rel="preload" as="image" href="/assets/program-builder.png" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="jo2.css" />
 
   <script type="application/ld+json">
   {
@@ -37,7 +38,7 @@
   }
   </script>
 </head>
-<body>
+<body class="jo2">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
@@ -77,10 +78,28 @@
   <main id="main">
     <!-- HERO / OVERVIEW -->
     <article>
-      <section class="cs-hero" id="overview">
-        <div class="container">
-          <span class="eyebrow eyebrow--accent" data-reveal>Case Study · Enterprise SaaS</span>
-          <h1 data-reveal style="max-width:18ch;margin-top:var(--space-lg)">Journey Orchestrator: rebuilding the Program Builder</h1>
+      <section class="cs-hero jo2-hero" id="overview">
+        <div class="jo2-hero__bg" aria-hidden="true">
+          <span class="jo2-glow jo2-glow--primary"></span>
+          <span class="jo2-glow jo2-glow--violet"></span>
+          <svg class="jo2-net" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" data-jo2-parallax="-0.12">
+            <path d="M60 150 C 340 60, 560 280, 860 170 S 1160 130, 1190 250"/>
+            <path d="M100 540 C 380 470, 600 620, 920 520 S 1150 540, 1190 470"/>
+            <path d="M180 340 C 460 300, 760 380, 1060 320"/>
+            <circle class="jo2-net__node" cx="60" cy="150" r="4"/><circle class="jo2-net__node" cx="860" cy="170" r="4"/>
+            <circle class="jo2-net__node--soft jo2-net__node" cx="920" cy="520" r="4"/><circle class="jo2-net__node" cx="1060" cy="320" r="4"/>
+            <circle class="jo2-net__node--soft jo2-net__node" cx="180" cy="340" r="4"/>
+          </svg>
+          <span class="jo2-signal" style="offset-path:path('M60 150 C 340 60, 560 280, 860 170');"></span>
+          <span class="jo2-signal" style="offset-path:path('M180 340 C 460 300, 760 380, 1060 320');animation-delay:1.6s;"></span>
+          <span class="jo2-artifact jo2-artifact--email" data-jo2-float style="top:30%;right:6%">Email</span>
+          <span class="jo2-artifact jo2-artifact--decision" data-jo2-float style="bottom:24%;left:5%">Decision</span>
+        </div>
+        <div class="container jo2-hero__inner">
+          <span class="eyebrow eyebrow--accent jo2-hero__eyebrow" data-reveal>Case Study · Enterprise SaaS</span>
+          <p class="jo2-kicker" data-reveal style="margin-top:1rem">Journey Orchestrator: rebuilding the Program Builder</p>
+          <h1 class="jo2-hero__title" data-reveal>Reimagining Customer Journey Orchestration</h1>
+          <p class="jo2-hero__sub" data-reveal>Transforming a complex enterprise automation platform into an intuitive orchestration experience that doubled customer adoption.</p>
           <p class="hero__lead measure" data-reveal>
             Program building was the heart of the product, and its biggest source of friction. I led the effort to
             reimagine it as an intuitive, AI-assisted workspace, owning research, stakeholder alignment, and design
@@ -121,13 +140,21 @@
         </div>
       </section>
 
-      <!-- Hero image -->
-      <section class="container" style="margin-bottom:var(--section-y)">
-        <figure class="figure" data-reveal>
-          <img src="/assets/program-builder.png" width="1800" height="1125"
-               alt="The redesigned program builder showing an audience node connecting to an email node, which branches on 'opened' and 'not opened' into survey, delay, Slack and engagement steps, with an actions and conditions palette docked to the right." />
-          <figcaption>The reimagined builder, drag-and-drop authoring with branching logic, conditions and a full action palette.</figcaption>
-        </figure>
+      <!-- Builder centerpiece -->
+      <section class="container jo2-hero__stage" style="margin-bottom:var(--section-y)">
+        <div class="jo2-stage-frame">
+          <div class="jo2-metric-floats">
+            <div class="jo2-metric-float jo2-metric-float--a" data-jo2-float><b>58%</b><span>Faster setup</span></div>
+            <div class="jo2-metric-float jo2-metric-float--b" data-jo2-float><b>2&times;</b><span>Adoption growth</span></div>
+            <div class="jo2-metric-float jo2-metric-float--c" data-jo2-float><b>Hundreds</b><span>Of customer requests</span></div>
+            <div class="jo2-metric-float jo2-metric-float--d" data-jo2-float><b>Self&#8209;serve</b><span>Program creation</span></div>
+          </div>
+          <figure class="figure jo2-glass" data-reveal data-jo2-float>
+            <img src="/assets/program-builder.png" width="1800" height="1125"
+                 alt="The redesigned program builder showing an audience node connecting to an email node, which branches on 'opened' and 'not opened' into survey, delay, Slack and engagement steps, with an actions and conditions palette docked to the right." />
+            <figcaption>The reimagined builder, drag-and-drop authoring with branching logic, conditions and a full action palette.</figcaption>
+          </figure>
+        </div>
       </section>
 
       <!-- CHALLENGE + GOAL -->
@@ -224,7 +251,7 @@
             </article>
           </div>
 
-          <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-2xl)">
+          <figure class="figure figure--pad jo2-glass" data-reveal style="margin-top:var(--space-2xl)">
             <img src="/assets/brainstorming-board.jpg" width="1800" height="1278" loading="lazy"
                  alt="A collaborative affinity board of color-coded sticky notes organized into three columns: JO Templates, High-level Workflow Suggestions, and Other Feedback." />
             <figcaption>Synthesizing working-session input into themes, templates, workflow suggestions, and broader feedback.</figcaption>
@@ -479,13 +506,34 @@
             </li>
           </ol>
 
-          <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-2xl)">
+          <figure class="figure figure--pad jo2-glass" data-reveal style="margin-top:var(--space-2xl)">
             <div class="dot-frame">
               <img src="/assets/user-flow.png" width="2000" height="638" loading="lazy"
                    alt="A program lifecycle flow diagram: Program List to Draft Program, a decision point to Test Program, then Active Program with edit, pause and stop options leading to a working draft that can be published or discarded." />
             </div>
             <figcaption>The program lifecycle, designing the states and transitions before designing screens.</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <!-- SIGNATURE BUILD -->
+      <section class="section jo2-build" data-jo2-build aria-label="How an orchestration is composed">
+        <div class="jo2-build__stage">
+          <div class="container" style="text-align:center">
+            <span class="jo2-kicker" style="justify-content:center">The signature moment</span>
+            <h2 class="jo2-dark__headline" style="color:var(--j-ink);max-width:22ch;margin:1rem auto 0">Programs became visual journeys.</h2>
+            <p class="measure" style="margin:1rem auto 0;color:var(--j-ink-2)">Audience, then email, then a decision, then a survey, each step composes into the full Program Builder.</p>
+            <div class="jo2-build__flow" style="margin-top:clamp(2.5rem,5vw,4rem)">
+              <div class="jo2-bnode"><span class="jo2-bnode__ic">A</span><span class="jo2-bnode__t">Audience</span></div>
+              <span class="jo2-bconn"></span>
+              <div class="jo2-bnode"><span class="jo2-bnode__ic" style="background:#eaf6ee;color:#3a9e5e">@</span><span class="jo2-bnode__t">Email</span></div>
+              <span class="jo2-bconn"></span>
+              <div class="jo2-bnode"><span class="jo2-bnode__ic" style="background:#fdf1dd;color:#b5791f">?</span><span class="jo2-bnode__t">Decision</span></div>
+              <span class="jo2-bconn"></span>
+              <div class="jo2-bnode"><span class="jo2-bnode__ic">S</span><span class="jo2-bnode__t">Survey</span></div>
+            </div>
+            <p class="jo2-build__caption">The entire orchestration expands into the full Program Builder.</p>
+          </div>
         </div>
       </section>
 
@@ -532,16 +580,37 @@
           </div>
 
           <div class="grid grid--2" style="margin-top:var(--space-2xl)">
-            <figure class="figure" data-reveal>
+            <figure class="figure jo2-glass" data-reveal>
               <img src="/assets/program-templates.png" width="1600" height="1233" loading="lazy"
                    alt="The Select Program Templates screen with a searchable list of templates, Low Adoption, Onboarding, NPS, CSAT, and a preview of the chosen template's audience-to-email branching flow." />
               <figcaption>Reusable templates, quick, personalized starting points.</figcaption>
             </figure>
-            <figure class="figure" data-reveal>
+            <figure class="figure jo2-glass" data-reveal>
               <img src="/assets/program-builder.png" width="1800" height="1125" loading="lazy"
                    alt="The drag-and-drop builder canvas with branching nodes and an actions and conditions palette." />
               <figcaption>Drag-and-drop authoring with branching logic and conditions.</figcaption>
             </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- VERSIONING & TESTING (cinematic) -->
+      <section class="section">
+        <div class="container">
+          <div class="jo2-dark" data-reveal style="padding:clamp(3rem,6vw,5.5rem)">
+            <span class="jo2-glow jo2-glow--primary"></span>
+            <div class="container" style="padding-inline:0;max-width:920px;margin-inline:auto">
+              <span class="eyebrow">Versioning &amp; Testing</span>
+              <h2 class="jo2-dark__headline" style="margin-top:1rem">Experiment without risk.</h2>
+              <p style="margin-top:1rem;max-width:60ch">From risky clone-and-republish to safe iteration: admins could draft, dry-run, publish, and roll back, without disrupting live programs.</p>
+              <div class="jo2-timeline">
+                <div class="jo2-tl-line"><span class="jo2-tl-pulse"></span></div>
+                <div class="jo2-tl-stage"><div class="jo2-tl-stage__dot"></div><div class="jo2-tl-stage__name">Draft</div><div class="jo2-tl-stage__desc">Compose safely in a working copy</div></div>
+                <div class="jo2-tl-stage"><div class="jo2-tl-stage__dot"></div><div class="jo2-tl-stage__name">Test</div><div class="jo2-tl-stage__desc">Dry-run end to end before launch</div></div>
+                <div class="jo2-tl-stage"><div class="jo2-tl-stage__dot"></div><div class="jo2-tl-stage__name">Publish</div><div class="jo2-tl-stage__desc">Ship with confidence</div></div>
+                <div class="jo2-tl-stage"><div class="jo2-tl-stage__dot"></div><div class="jo2-tl-stage__name">Rollback</div><div class="jo2-tl-stage__desc">Recover a prior version instantly</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -581,17 +650,28 @@
           </div>
 
           <!-- Impact artifact -->
-          <div class="impact" data-reveal>
-            <div class="impact__media">
-              <img src="/assets/adoption-impact.png" width="902" height="1240" loading="lazy"
-                   alt="An internal note observing that customers with at least one active Journey Orchestrator grew sharply, with a line chart of active-JO tenants rising steeply through 2024." />
-            </div>
-            <div>
-              <span class="eyebrow eyebrow--accent">Adoption signal</span>
-              <blockquote style="margin-top:var(--space-md)">
-                <p>The release of dynamic programs at the end of 2023 was the primary driver behind a sharp acceleration in adoption, doubling monthly customer growth from 2% to 4% in 2024.</p>
-              </blockquote>
-              <p style="margin-top:var(--space-lg)">A clear line from the design strategy, dynamic, timezone-aware programs, to a business outcome leadership could see in the data.</p>
+          <div class="jo2-dark" data-reveal style="padding:clamp(2.5rem,5vw,4.5rem);margin-top:var(--space-2xl)">
+            <span class="jo2-glow jo2-glow--primary"></span>
+            <div class="container" style="padding-inline:0">
+              <span class="eyebrow">Adoption signal</span>
+              <h2 class="jo2-dark__headline" style="margin-top:1rem">The data told a story.</h2>
+              <svg viewBox="0 0 600 120" preserveAspectRatio="none" style="width:100%;height:90px;margin-top:1.5rem" aria-hidden="true">
+                <defs><linearGradient id="jo2AreaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b5bd6" stop-opacity="0.35"/><stop offset="1" stop-color="#5b5bd6" stop-opacity="0"/></linearGradient></defs>
+                <path class="jo2-adopt__area" d="M0 110 C 160 104, 300 96, 380 70 S 520 8, 600 6 L 600 120 L 0 120 Z"/>
+                <path class="jo2-draw" d="M0 110 C 160 104, 300 96, 380 70 S 520 8, 600 6"/>
+              </svg>
+              <div class="jo2-adopt" style="margin-top:2.5rem">
+                <div>
+                  <blockquote style="font-size:var(--step-2);color:#fff;line-height:1.3">
+                    <p>The release of dynamic programs at the end of 2023 was the primary driver behind a sharp acceleration in adoption, doubling monthly customer growth from 2% to 4% in 2024.</p>
+                  </blockquote>
+                  <p style="margin-top:var(--space-lg)">A clear line from the design strategy, dynamic, timezone-aware programs, to a business outcome leadership could see in the data.</p>
+                </div>
+                <figure class="figure jo2-glass jo2-adopt__chart" data-jo2-float style="margin:0">
+                  <img src="/assets/adoption-impact.png" width="902" height="1240" loading="lazy"
+                       alt="An internal note observing that customers with at least one active Journey Orchestrator grew sharply, with a line chart of active-JO tenants rising steeply through 2024." />
+                </figure>
+              </div>
             </div>
           </div>
 
@@ -627,6 +707,22 @@
         </div>
       </section>
     </article>
+
+    <!-- FINAL STATEMENT -->
+    <section class="section jo2-final">
+      <div class="container">
+        <span class="jo2-glow jo2-glow--violet" style="width:40vw;height:40vw;top:-12vw;left:50%;transform:translateX(-50%)"></span>
+        <span class="jo2-kicker" style="justify-content:center">The transformation</span>
+        <h2 class="jo2-final__statement" style="margin-top:1.2rem">Enterprise software should enable creativity, not constrain it.</h2>
+        <div class="jo2-final__chips">
+          <span class="jo2-final__chip">Program Builder</span>
+          <span class="jo2-final__chip">Templates</span>
+          <span class="jo2-final__chip">AI Assistance</span>
+          <span class="jo2-final__chip">Versioning</span>
+          <span class="jo2-final__chip">Testing</span>
+        </div>
+      </div>
+    </section>
 
     <!-- CTA -->
     <section class="section">
@@ -676,5 +772,6 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script defer src="/script.js"></script>
+  <script defer src="jo2.js"></script>
 </body>
 </html>
