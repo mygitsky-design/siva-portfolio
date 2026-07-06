@@ -136,3 +136,7 @@
 /* Flagship header sits on the page canvas (not a card) — keep it legible in dark mode */
 :root[data-theme="dark"] .home-cine .csf__head h2 { color: #f4f4f5; }
 :root[data-theme="dark"] .home-cine .csf__head p { color: #a1a1aa; }
+
+/* "What I lead" cards: equal size + aligned descriptions */
+.home-cine .grid--3 { grid-auto-rows: 1fr; }
+.home-cine .grid--3 .card h3 { line-height: 1.25; min-height: 2.5em; }
