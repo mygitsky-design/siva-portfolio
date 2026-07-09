@@ -140,3 +140,9 @@
 /* "What I lead" cards: equal size + aligned descriptions */
 .home-cine .grid--3 { grid-auto-rows: 1fr; }
 .home-cine .grid--3 .card h3 { line-height: 1.25; min-height: 2.5em; }
+
+/* ---- Mobile: hide the fixed-size flagship mockup (it can't fit small screens) ---- */
+@media (max-width: 680px) {
+  .csf-stage { display: none !important; }
+  .csf-flag__body, .csf-gov__pad { padding: 32px 22px !important; }
+}
