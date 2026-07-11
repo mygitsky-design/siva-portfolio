@@ -214,6 +214,8 @@ strong { color: var(--ink); font-weight: 600; }
 .section--tight { padding-block: clamp(3rem, 2rem + 5vw, 5rem); }
 
 .measure { max-width: var(--maxw-text); }
+.prose { max-width: var(--maxw-text); font-size: var(--step-0); line-height: 1.7; color: var(--ink-2); }
+.prose > * + * { margin-top: var(--space-lg); }
 
 .divider { height: 1px; background: var(--line); border: 0; }
 

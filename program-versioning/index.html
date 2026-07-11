@@ -164,6 +164,7 @@
             Post Publish Program Edits was the most-requested capability in Gainsight Journey Orchestrator's history.
             I led the design of a copy-based versioning model that let admins edit active programs in place, safely,
             incrementally, and without disrupting participants mid-journey, across a multi-quarter, three-phase initiative.
+            It was developed as part of the broader <a href="/journey-orchestrator" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">Journey Orchestrator</a> transformation.
           </p>
 
           <div class="cs-hero__meta" data-stagger>
@@ -268,8 +269,8 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">The design challenge</span>
-            <h2>Three systemic questions, answered at the platform level</h2>
-            <p>The tension wasn't cosmetic. Allowing edits to a live program introduces real risk for participants mid-journey, so the design had to answer three questions at once.</p>
+            <h2>Three problems the model had to solve</h2>
+            <p>We first looked at letting admins edit the live program directly. Engineering discussions made the risk concrete: editing an active program can corrupt participant state and leave cross-version analytics ambiguous. That moved us toward a copy-based draft model, and the design still had to answer three questions at once.</p>
           </div>
           <div class="grid grid--3" data-stagger>
             <article class="card" data-reveal>
@@ -360,14 +361,14 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Key design decisions</span>
-            <h2>Five decisions that made the system trustworthy</h2>
+            <h2>Key decisions in the versioning model</h2>
           </div>
 
           <div data-stagger>
             <div class="decision" data-reveal>
               <div class="decision__n">01</div>
               <div>
-                <h3>Edit as a copy, not in-place</h3>
+                <h3>Editing happens on a copy</h3>
                 <p class="decision__r">Editing creates a copy of the active program. The live version keeps running with no interruption while admins work in a clearly labelled &lsquo;Post Publish Edit Draft&rsquo; state, a persistent amber banner reinforcing that they're editing a copy. <b>This framing removed the biggest source of admin anxiety:</b> fear of accidentally breaking something customers were already in.</p>
                 <span class="decision__takeaway">Safety by architecture, not by warning</span>
               </div>
@@ -393,7 +394,7 @@
             <div class="decision" data-reveal>
               <div class="decision__n">03</div>
               <div>
-                <h3>Skip, don't delete, preserving participant integrity</h3>
+                <h3>Steps are skipped, not deleted</h3>
                 <p class="decision__r">Hard-deleting a step orphans participants who already completed it and breaks analytics integrity. Instead, &lsquo;Skip step&rsquo; keeps the step in the flow but marks it skipped for future participants. A counterintuitive but critical decision that <b>came directly from deep collaboration with engineering</b> on participant state management.</p>
                 <div class="mock" style="margin-top:var(--space-md)">
                   <div class="mock__bar"><span class="mock__crumb">Program Flow · <b>Edit mode</b></span><span style="margin-left:auto"><span class="status status--draft">Post Publish Edit Draft</span></span></div>
@@ -441,7 +442,7 @@
             <div class="decision" data-reveal>
               <div class="decision__n">05</div>
               <div>
-                <h3>Publish as a moment of truth, the summary modal</h3>
+                <h3>A publish summary before anything goes live</h3>
                 <p class="decision__r">Re-publishing overrides a live program and transitions participants, so the design treats it as a deliberate review moment. A summary modal surfaces every change, sources, new steps, skipped steps, analytics, with an explicit continuity guarantee before confirming. <b>This became the primary trust-building moment in the entire flow.</b></p>
                 <div class="mock" style="margin-top:var(--space-md);max-width:560px">
                   <div class="mock__body">
@@ -479,7 +480,7 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Design process</span>
-            <h2>From community signal to a defensible system</h2>
+            <h2>Designing the versioning model</h2>
           </div>
           <div class="cv-flow" data-reveal aria-label="Design process flow">
             <span class="cv-flow__node">Community signal</span><span class="cv-flow__arr" aria-hidden="true">→</span>
@@ -570,7 +571,7 @@
           </div>
           <div class="section-head" data-reveal style="margin-top:var(--space-3xl)">
             <span class="eyebrow eyebrow--accent">Screens designed</span>
-            <h2>From draft creation to a fully edited flow</h2>
+            <h2>The edited flow, end to end</h2>
             <p>The shipped experience, end to end, generating a safe draft, inserting and re-routing steps, and validating every branch before publish.</p>
           </div>
           <div class="grid grid--2" data-stagger style="margin-top:var(--space-xl)">
@@ -599,7 +600,7 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Outcome &amp; impact</span>
-            <h2>Years of community demand, resolved</h2>
+            <h2>A long-requested capability, shipped</h2>
           </div>
           <ul class="recap-list" data-stagger>
             <li data-reveal>Admins can now edit active programs without taking them offline, zero disruption to existing participants</li>
@@ -611,7 +612,7 @@
 
           <div class="card" data-reveal style="margin-top:var(--space-2xl);background:var(--surface-2)">
             <span class="eyebrow eyebrow--accent">Leadership reflection</span>
-            <h3 style="margin-top:var(--space-sm)">Systems thinking across four state spaces at once</h3>
+            <h3 style="margin-top:var(--space-sm)">Designing across four state spaces at once</h3>
             <p class="measure" style="margin-top:var(--space-sm)">This work demanded designing across participant state, version state, source type, and analytics simultaneously, and holding a single coherent mental model across 12+ months and three phases. The strategy lived in architectural decisions (copy-based drafts, skip-not-delete) made in the PRD before any screen existed, and in the cross-functional alignment that turned a years-old request into shipped platform capability.</p>
           </div>
         </div>
@@ -622,8 +623,8 @@
     <section class="section">
       <div class="container">
         <div class="cta" data-reveal>
-          <h2>Want this depth of platform thinking on your team?</h2>
-          <p>From PRD to participant-state edge cases, I lead design that holds the whole system in view.</p>
+          <h2>Interested in working together?</h2>
+          <p>I lead design that holds the whole system in view, from the PRD down to participant-state edge cases.</p>
           <a class="btn btn--accent" href="/contact">Get in touch
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
