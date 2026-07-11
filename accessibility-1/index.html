@@ -120,17 +120,17 @@
 
           <div class="grid grid--3" data-stagger>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/signal-community-contrast.svg" width="416" height="228" loading="lazy"
+              <img src="/assets/accessibility-1/new-signal-3.png" width="416" height="228" loading="lazy"
                    alt="Community idea titled 'Enhance accessibility in reports (color contrast)' from a VIP customer, asking the system to auto-switch font color based on background so dark text isn't shown on dark backgrounds." />
               <figcaption>A VIP customer idea: reports showing dark text on dark backgrounds.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/signal-community-ui.svg" width="432" height="257" loading="lazy"
+              <img src="/assets/accessibility-1/new-signal-2.png" width="432" height="257" loading="lazy"
                    alt="Community idea titled 'Improve Accessibility for Gainsight CS', posted on behalf of a customer reporting that grey text on white is hard to read and small text is challenging, requesting per-user accessibility options." />
               <figcaption>Another, on behalf of a customer: low-contrast grey text and small type.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/signal-slack.svg" width="432" height="218" loading="lazy"
+              <img src="/assets/accessibility-1/new-signal-1.png" width="432" height="218" loading="lazy"
                    alt="Slack message tagging Siva Kiran Yellapragada asking whether there are plans to improve support for functions marked as 'partially supports', because a customer evaluating CS is asking in response to the audit report." />
               <figcaption>A direct Slack ask: an evaluating customer questioning "partially supports" findings.</figcaption>
             </figure>
@@ -144,32 +144,32 @@
 
           <div class="grid grid--2" data-stagger>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/missing-labels.jpg" width="1600" height="900" loading="lazy"
-                   alt="Audit view of a form where inputs are not programmatically labeled, flagged as missing accessible names." />
-              <figcaption>Missing labels: inputs without programmatic names that screen readers can announce.</figcaption>
+              <img src="/assets/accessibility-1/new-missing-labels.png" loading="lazy"
+                   alt="Outlook message with DevTools showing an image whose alt attribute is only image0.jpeg, and an NVDA speech viewer reading it, annotated to provide the correct alt text." />
+              <figcaption>Non-descriptive image names: the image's accessible name was only its filename (&ldquo;image0.jpeg&rdquo;), so screen readers announced no useful description.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/heading-hierarchy.jpg" width="1600" height="900" loading="lazy"
+              <img src="/assets/accessibility-1/new-heading-hierarchy.png" width="1600" height="900" loading="lazy"
                    alt="Accessibility panel showing heading levels that skip, breaking the document outline." />
               <figcaption>Broken heading hierarchy: levels skipped, so the page outline didn't reflect its structure.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/contrast.jpg" width="1600" height="900" loading="lazy"
+              <img src="/assets/accessibility-1/new-contrast.png" width="1600" height="900" loading="lazy"
                    alt="DevTools contrast inspector showing a link color at 2.42:1, failing the WCAG minimum." />
               <figcaption>Poor contrast ratios: interactive text below the WCAG minimum, here a link at 2.42:1.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/links.jpg" width="1600" height="900" loading="lazy"
+              <img src="/assets/accessibility-1/new-links.png" width="1600" height="900" loading="lazy"
                    alt="Example of vague link text that gives no context out of order, such as repeated generic labels." />
               <figcaption>Less descriptive links: generic link text that loses meaning out of context.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/sr-before.jpg" width="1600" height="900" loading="lazy"
+              <img src="/assets/accessibility-1/new-sr-before.png" width="1600" height="900" loading="lazy"
                    alt="Survey rating where the screen reader only announces 'You are currently on a text element, inside web content,' giving no rating value or role." />
               <figcaption>Ambiguous screen-reader output: the rating reads only as a bare text element. No role, no value.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
-              <img src="/assets/accessibility-1/sr-after.jpg" width="1600" height="900" loading="lazy"
+              <img src="/assets/accessibility-1/new-sr-after.png" width="1600" height="900" loading="lazy"
                    alt="Survey rating where the screen reader announces 'Not at all likely 0, radio button, 1 of 11, list 11 items.'" />
               <figcaption>Even when announced as a radio group, the scale's endpoint labels were missed out of context.</figcaption>
             </figure>
@@ -273,7 +273,7 @@
             <li class="process-step" data-reveal><div><h3>Feature walkthrough recordings</h3><p>Recorded flows and business context so the vendor and engineers understood the why behind each screen, not just the markup.</p></div></li>
           </ol>
           <figure class="figure figure--pad figure--tile" data-reveal style="margin-top:var(--space-2xl)">
-            <img src="/assets/accessibility-1/feature-mapping.jpg" width="1600" height="900" loading="lazy"
+            <img src="/assets/accessibility-1/new-feature-mapping.png" width="1600" height="900" loading="lazy"
                  alt="Spreadsheet mapping features, screens, and accessibility findings row by row for vendor and engineering reference." />
             <figcaption>Feature mapping: each screen and finding documented to reduce interpretation. Reducing interpretation was the goal.</figcaption>
           </figure>
@@ -316,12 +316,9 @@
           </div>
           <div class="grid grid--2" data-stagger>
             <figure class="figure figure--pad" data-reveal>
-              <!-- TODO: replace placeholder with fixed-screen screenshot -->
-              <div class="media-placeholder" role="img" aria-label="Placeholder for screenshot: Fixed: survey rating as an accessible radio group with announced labels">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-                <span class="ph-label">Fixed: survey rating as an accessible radio group with announced labels</span>
-                <span class="ph-hint">Screenshot to add</span>
-              </div>
+              <img src="/assets/accessibility-1/new-evaluation-tools.png" loading="lazy"
+                   alt="Lighthouse accessibility audit on a survey preview showing passing checks: sufficient colour contrast, permitted ARIA attributes, a document title, and a lang attribute." />
+              <figcaption>Validated with automated tooling: after remediation, Lighthouse reports passing checks (contrast, ARIA, title, lang) on the survey.</figcaption>
             </figure>
             <figure class="figure figure--pad" data-reveal>
               <!-- TODO: replace placeholder with fixed-screen screenshot -->
