@@ -7,7 +7,7 @@
   <link rel="alternate icon" type="image/svg+xml" sizes="16x16" href="/favicon-16.svg" />
   <link rel="apple-touch-icon" href="/app-icon-512.svg" />
   <title>Accessibility at Scale · Case Study · sky</title>
-  <meta name="description" content="A field-level case study in stabilizing a growing SaaS ecosystem: risk-prioritized remediation, screen-reader and contrast fixes, component governance, engineering enablement, and an AI-assisted plug-in that moved accessibility from periodic audits to embedded feedback." />
+  <meta name="description" content="A field-level case study in stabilizing a growing SaaS ecosystem: a funded, phased accessibility program with risk-prioritized remediation, screen-reader and contrast fixes, component governance, engineering enablement, and a VPAT." />
   <meta name="author" content="Siva Kiran Yellapragada" />
   <link rel="canonical" href="https://siva.design/accessibility-1" />
   <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
@@ -15,7 +15,7 @@
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Accessibility at Scale · Case Study" />
-  <meta property="og:description" content="Stabilizing a growing SaaS ecosystem through risk-prioritized remediation, component governance, engineering enablement, and AI-assisted detection." />
+  <meta property="og:description" content="Stabilizing a growing SaaS ecosystem through a funded, phased accessibility program: risk-prioritized remediation, component governance, engineering enablement, and a VPAT." />
   <meta property="og:url" content="https://siva.design/accessibility-1" />
   <meta property="og:image" content="https://siva.design/assets/program-builder.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -32,7 +32,7 @@
     "headline": "Accessibility at Scale, Stabilizing a Growing SaaS Ecosystem",
     "author": { "@type": "Person", "name": "Siva Kiran Yellapragada", "alternateName": "sky" },
     "about": ["Accessibility program leadership", "Design operations", "Design system governance", "Organizational change", "VPAT compliance"],
-    "description": "A hands-on case study on stabilizing a SaaS ecosystem through risk-prioritized remediation, component governance, engineering enablement, and AI-assisted detection."
+    "description": "A hands-on case study on stabilizing a SaaS ecosystem through a funded, phased accessibility program: risk-prioritized remediation, component governance, engineering enablement, and a VPAT."
   }
   </script>
 </head>
@@ -51,46 +51,51 @@
   <!-- Section progress nav -->
   <nav class="cs-progress" aria-label="Case study sections">
     <a data-section-link href="#overview"><span class="dot" aria-hidden="true"></span><span class="txt">Summary</span></a>
-    <a data-section-link href="#problem"><span class="dot" aria-hidden="true"></span><span class="txt">Problem</span></a>
-    <a data-section-link href="#mandate"><span class="dot" aria-hidden="true"></span><span class="txt">Mandate</span></a>
-    <a data-section-link href="#strategy"><span class="dot" aria-hidden="true"></span><span class="txt">Strategy</span></a>
-    <a data-section-link href="#enable"><span class="dot" aria-hidden="true"></span><span class="txt">Enablement</span></a>
-    <a data-section-link href="#phase1"><span class="dot" aria-hidden="true"></span><span class="txt">Phase 1</span></a>
-    <a data-section-link href="#governance"><span class="dot" aria-hidden="true"></span><span class="txt">Governance</span></a>
-    <a data-section-link href="#engineering"><span class="dot" aria-hidden="true"></span><span class="txt">Engineering</span></a>
-    <a data-section-link href="#scaling"><span class="dot" aria-hidden="true"></span><span class="txt">Scaling</span></a>
-    <a data-section-link href="#customers"><span class="dot" aria-hidden="true"></span><span class="txt">Retention</span></a>
-    <a data-section-link href="#outcomes"><span class="dot" aria-hidden="true"></span><span class="txt">Outcomes</span></a>
+    <a data-section-link href="#asks"><span class="dot" aria-hidden="true"></span><span class="txt">The asks</span></a>
+    <a data-section-link href="#funded"><span class="dot" aria-hidden="true"></span><span class="txt">Funded</span></a>
+    <a data-section-link href="#vendor"><span class="dot" aria-hidden="true"></span><span class="txt">Vendor</span></a>
+    <a data-section-link href="#coverage"><span class="dot" aria-hidden="true"></span><span class="txt">Coverage</span></a>
+    <a data-section-link href="#phases"><span class="dot" aria-hidden="true"></span><span class="txt">Phasing</span></a>
+    <a data-section-link href="#findings"><span class="dot" aria-hidden="true"></span><span class="txt">Findings</span></a>
+    <a data-section-link href="#phase2"><span class="dot" aria-hidden="true"></span><span class="txt">Phase 2</span></a>
+    <a data-section-link href="#spec"><span class="dot" aria-hidden="true"></span><span class="txt">Behaviour</span></a>
+    <a data-section-link href="#remediation"><span class="dot" aria-hidden="true"></span><span class="txt">Fixes</span></a>
+    <a data-section-link href="#customers"><span class="dot" aria-hidden="true"></span><span class="txt">Customers</span></a>
+    <a data-section-link href="#changed"><span class="dot" aria-hidden="true"></span><span class="txt">Changed</span></a>
+    <a data-section-link href="#reflection"><span class="dot" aria-hidden="true"></span><span class="txt">Reflection</span></a>
   </nav>
 
   <main id="main">
     <article>
-      <!-- HERO / SUMMARY -->
+      <!-- 1 · HERO / SUMMARY -->
       <section class="cs-hero" id="overview">
         <div class="container">
           <span class="eyebrow eyebrow--accent" data-reveal>Case Study · Design Leadership · Accessibility</span>
           <h1 data-reveal style="max-width:18ch;margin-top:var(--space-lg)">Accessibility at Scale</h1>
           <p class="hero__lead measure" data-reveal>
-            A case study in stabilizing a growing SaaS ecosystem. I initiated this effort from scattered support
-            signals and led it end to end: securing executive commitment and budget, then driving risk-prioritized
-            remediation, screen-reader and contrast fixes, component governance, engineering enablement, customer
-            communication, and an AI-assisted plug-in that moved accessibility from periodic audits to feedback built
-            into the development loop.
+            Accessibility was not on our roadmap. Customer asks kept arriving anyway. I put my hand up to own it.
+          </p>
+          <p class="measure" data-reveal style="margin-top:var(--space-md);color:var(--ink-2)">
+            Over two years I turned scattered requests into a funded, phased program: selected an audit vendor, mapped
+            the product so nothing would be missed, sequenced remediation by customer risk, and used the second phase to
+            fix the components underneath rather than the screens on top. It ended with a VPAT, a design system running
+            one version instead of several, and accessibility that was no longer a fire drill.
           </p>
 
           <div class="cs-hero__meta" data-stagger>
             <div data-reveal>
               <div class="cs-meta__label">My role</div>
-              <div class="cs-meta__value">I initiated the effort, secured executive commitment and budget, and led it end to end: prioritization, vendor selection and enablement, component governance, engineering coordination, customer communication, and tooling.</div>
+              <div class="cs-meta__value">I initiated the program and owned it end to end: vendor selection and enablement, audit scoping, finding triage, phased execution, design-system alignment, remediation specification, and customer communication.</div>
             </div>
             <div data-reveal>
               <div class="cs-meta__label">Worked across</div>
               <div class="cs-meta__value">
                 <ul>
                   <li>Product Management</li>
-                  <li>Engineering teams</li>
+                  <li>Engineering &amp; QA</li>
                   <li>External accessibility vendor</li>
                   <li>Customer Success &amp; Support</li>
+                  <li>Leadership</li>
                 </ul>
               </div>
             </div>
@@ -99,9 +104,9 @@
               <div class="cs-meta__value">
                 <ul>
                   <li>VPAT documentation obtained</li>
-                  <li>High-ARR account retained, churn prevented</li>
-                  <li>Critical violations down on high-traffic surfaces</li>
-                  <li>Canonical components &amp; AI-assisted detection</li>
+                  <li>High-ARR account retained</li>
+                  <li>Critical violations reduced on customer-facing surfaces</li>
+                  <li>Components consolidated to one accessible version</li>
                 </ul>
               </div>
             </div>
@@ -109,13 +114,15 @@
         </div>
       </section>
 
-      <!-- THE MOMENT / DEEPER PROBLEM -->
-      <section class="section" id="problem">
+      <!-- 2 · THE ASKS CAME IN FROM EVERYWHERE -->
+      <section class="section" id="asks">
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow">The moment it became real</span>
-            <h2>Scattered signals, no owned strategy</h2>
-            <p>Accessibility didn't begin as a roadmap item. It began as a series of signals: customer ideas in the community, account teams flagging contrast complaints, and direct asks landing in my Slack about partial-support gaps during evaluations. Individually, each felt manageable. Collectively, they exposed something bigger: there was no accessibility strategy, and that was the inflection point.</p>
+            <h2>The asks came in from everywhere</h2>
+            <p>Ideas posted in the customer community. Account teams forwarding contrast complaints. Slack messages from sales during evaluations, asking about the controls our VPAT marked as &ldquo;partially supports,&rdquo; because a prospect had asked.</p>
+            <p>Each one was small enough to handle on its own. That was the problem. Nobody was counting them, so nobody could see that we were walking into enterprise evaluations without a credible answer, and that no one owned the gap.</p>
+            <p>I decided to.</p>
           </div>
 
           <div class="grid grid--3" data-stagger>
@@ -135,11 +142,141 @@
               <figcaption>A direct Slack ask: an evaluating customer questioning "partially supports" findings.</figcaption>
             </figure>
           </div>
+        </div>
+      </section>
 
-          <div class="section-head" data-reveal style="margin-top:var(--space-2xl)">
-            <span class="eyebrow eyebrow--accent">The deeper problem</span>
-            <h2>The vendor audit revealed predictable violations</h2>
-            <p>The external vendor conducted the formal audit and documented the violations. What stood out to me in their findings was the pattern behind them: the same categories of failure repeating across the platform.</p>
+      <!-- 3 · MAKING IT A FUNDED PROGRAM -->
+      <section class="section section--tight" id="funded">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">Making it a funded initiative</span>
+            <h2>Making it a funded program</h2>
+            <p>I took the pattern to leadership. This was not a backlog of UI bugs. It was a procurement blocker with a growing tail, and it would only get more expensive to fix the longer the product kept shipping on top of it.</p>
+            <p>I asked for three things: budget, an external audit partner, and a definition of done we could actually be held to. We settled on WCAG 2.1 AA, with the VPAT as the tangible deliverable.</p>
+            <p>That turned accessibility from something everyone agreed was important into something that had an owner, a scope, and a date.</p>
+          </div>
+          <ol class="process-list" data-stagger>
+            <li class="process-step" data-reveal>
+              <div>
+                <h3>Secured executive commitment</h3>
+                <p>Made the case to leadership directly, so accessibility became a funded, owned initiative rather than a side effort. Everything downstream depended on that mandate.</p>
+              </div>
+            </li>
+            <li class="process-step" data-reveal>
+              <div>
+                <h3>Shaped the investment case and the bar</h3>
+                <p>Helped build the budget case and defined what &ldquo;done&rdquo; meant: conformance against WCAG 2.1 AA, with the VPAT as the deliverable that proved it.</p>
+              </div>
+            </li>
+            <li class="process-step" data-reveal>
+              <div>
+                <h3>Owned it end to end</h3>
+                <p>Drove the program across product, engineering, QA, and customer success, from a cold start through execution, governance, and customer communication.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4 · CHOOSING THE VENDOR -->
+      <section class="section" id="vendor">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">A leadership decision</span>
+            <h2>Choosing the vendor</h2>
+            <p>I spoke to several accessibility vendors before selecting one.</p>
+            <p>Most could run a checklist and return a list of violations. That was not the hard part. Our product changes behaviour based on role, permissions, and tenant configuration, so the same screen can look correct for one user and be unusable for another. A vendor who could not navigate that would either miss real failures or report failures that were not real.</p>
+            <p>I chose the partner who could tell the difference, and who could test across assistive technologies, browsers, and operating systems on a product of this size.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 · MAKING SURE NO SCREEN WAS MISSED -->
+      <section class="section section--tight" id="coverage">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">Removing the biggest audit risk</span>
+            <h2>Making sure no screen was missed</h2>
+            <p>The risk with a platform this large is that the audit only covers what the vendor happens to find.</p>
+            <p>So before testing began, I built the product architecture in Excel: every module, every page and feature, the classification of each element, and the flows and states that mattered. Then I recorded video walkthroughs so the vendor understood not just where a screen was, but what it was for and how customers actually used it.</p>
+            <p>It was unglamorous work. It was also the reason the audit came back with coverage we could trust, and the reason we never had to argue about scope halfway through.</p>
+          </div>
+          <ol class="process-list" data-stagger>
+            <li class="process-step" data-reveal>
+              <div>
+                <h3>Screen-by-screen flow documentation</h3>
+                <p>Mapped every in-scope surface so findings landed against a concrete screen and state, not an abstract rule.</p>
+              </div>
+            </li>
+            <li class="process-step" data-reveal>
+              <div>
+                <h3>Feature walkthrough recordings</h3>
+                <p>Recorded flows and business context so the vendor understood the why behind each screen, not just the markup.</p>
+              </div>
+            </li>
+          </ol>
+          <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-2xl)">
+            <img src="/assets/accessibility-1/new-feature-mapping.png" width="1600" height="900" loading="lazy"
+                 alt="Excel workbook mapping the product architecture: modules, pages and features, element classifications, and the flows and states in scope for the accessibility audit." />
+            <figcaption>Feature mapping: every screen documented before testing began, so audit coverage was a decision rather than an accident.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 6 · FIX THE RISK FIRST, THEN FIX THE SYSTEM -->
+      <section class="section" id="phases">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">A strategic choice</span>
+            <h2>Fix the risk first, then fix the system</h2>
+            <p>Correcting the entire platform at once would have stalled the roadmap for months. So I sequenced the work by exposure, protecting the surfaces a customer or their end users could see, first.</p>
+          </div>
+          <div class="phase-grid" data-stagger>
+            <article class="phase-card" data-reveal>
+              <div class="phase-card__head"><span class="phase-card__n">Phase 1</span><span class="phase-card__q">End user</span></div>
+              <p>Brand-visible, high-traffic, legally exposed.</p>
+              <ul class="recap-list" style="margin-top:var(--space-md)">
+                <li>Survey response pages</li>
+                <li>Emails</li>
+                <li>Email opt-out pages</li>
+                <li>Email inline surveys</li>
+              </ul>
+            </article>
+            <article class="phase-card" data-reveal>
+              <div class="phase-card__head"><span class="phase-card__n">Phase 2</span><span class="phase-card__q">CSM</span></div>
+              <p>Daily operational surfaces.</p>
+              <ul class="recap-list" style="margin-top:var(--space-md)">
+                <li>Gainsight Home</li>
+                <li>Timeline &amp; Cockpit</li>
+                <li>Customer 360 &amp; Relationship 360</li>
+                <li>Spaces</li>
+              </ul>
+            </article>
+            <article class="phase-card" data-reveal>
+              <div class="phase-card__head"><span class="phase-card__n">Phase 3</span><span class="phase-card__q">Administrator</span></div>
+              <p>Configuration and foundations.</p>
+              <ul class="recap-list" style="margin-top:var(--space-md)">
+                <li>Admin &amp; setup surfaces</li>
+                <li>Completes platform-wide coverage</li>
+                <li>Lower day-to-day exposure</li>
+              </ul>
+            </article>
+          </div>
+          <div class="card" data-reveal style="margin-top:var(--space-2xl);background:var(--surface-2)">
+            <p class="measure" style="font-size:var(--step-1);color:var(--ink)">This meant temporarily living with known issues in lower-risk areas. It also meant we could show measurable progress without paralyzing the roadmap.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · TURNING FINDINGS INTO WORK -->
+      <section class="section" id="findings">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">Equip teams &amp; make the audit usable</span>
+            <h2>Turning findings into work</h2>
+            <p>The vendor returned findings in a tracker. A tracker is not a plan.</p>
+            <p>I read every finding. For each one I decided whether it was valid in our product context, whether it duplicated something already covered, whether it needed a design decision before it could be fixed, and whether the right fix was local or belonged at the component level. Where the report was ambiguous, I raised it rather than passing the ambiguity downstream.</p>
+            <p>What stood out was the pattern behind the findings: the same categories of failure repeating across the platform.</p>
           </div>
 
           <div class="grid grid--2" data-stagger>
@@ -170,176 +307,64 @@
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
               <img src="/assets/accessibility-1/new-sr-after.png" width="1600" height="900" loading="lazy"
-                   alt="Survey rating where the screen reader announces 'Not at all likely 0, radio button, 1 of 11, list 11 items.'" />
+                   alt="The same survey rating announced as a radio group, but the scale's endpoint labels are not conveyed, so the meaning of the ends is missed out of context." />
               <figcaption>Even when announced as a radio group, the scale's endpoint labels were missed out of context.</figcaption>
             </figure>
           </div>
 
           <figure class="figure figure--media" data-reveal>
-            <video autoplay loop muted playsinline preload="auto" data-hover-controls width="1598" height="740">
+            <video autoplay loop muted playsinline preload="auto" data-hover-controls width="1600" height="1000">
               <source src="/assets/accessibility-1/contrast-demo.mov" type="video/mp4" />
               Your browser can't play this video.
               <a href="/assets/accessibility-1/contrast-demo.mov">Download the contrast demo</a>.
             </video>
-            <figcaption>Contrast finding demonstrated: an interactive element falling below the WCAG contrast minimum.</figcaption>
+            <figcaption>Contrast finding demonstrated in context, not asserted from a checklist.</figcaption>
           </figure>
 
-          <div class="card" data-reveal style="background:var(--surface-2);margin-top:var(--space-xl)">
-            <span class="eyebrow eyebrow--accent">Design system drift</span>
-            <p class="measure" style="margin-top:var(--space-sm);font-size:var(--step-1);color:var(--ink)">
-              The same components, dropdowns for example, existed in multiple variations across modules. Each behaved
-              slightly differently and implemented accessibility inconsistently. That realization ultimately shifted
-              the direction of the work: from fixing screens to fixing the system underneath them.
-            </p>
+          <div class="section-head" data-reveal style="margin-top:var(--space-2xl)">
+            <h3>Clarifying findings before engineering started</h3>
+            <p>Once a module was fully evaluated, I ran a war room with the vendor, design, engineering, and QA before any fix was written. The purpose was to settle open questions in one room, in one hour, rather than across twenty Jira comments over three weeks.</p>
+            <p>Without that step, engineers would have received the audit as a flat bug list and fixed each item where they found it. Some of those fixes would have been wrong, and most of them would have come back.</p>
           </div>
         </div>
       </section>
 
-      <!-- TURNING SIGNALS INTO A MANDATE -->
-      <section class="section section--tight" id="mandate">
-        <div class="container">
-          <div class="section-head" data-reveal>
-            <span class="eyebrow eyebrow--accent">Making it a funded initiative</span>
-            <h2>I made accessibility a funded, owned initiative</h2>
-            <p>Scattered fixes would never hold. So I built the conditions for the work to succeed: I took the signals to leadership and turned accessibility into a funded program with an owner, a scope, and a definition of done, then brought in the right external partner to validate it.</p>
-          </div>
-          <ol class="process-list" data-stagger>
-            <li class="process-step" data-reveal><div><h3>Secured executive commitment</h3><p>Worked directly with leadership to make accessibility a funded, owned initiative rather than a side effort, establishing the mandate the rest of the work depended on.</p></div></li>
-            <li class="process-step" data-reveal><div><h3>Shaped budget &amp; success criteria</h3><p>Helped build the investment case and defined what "done" meant: conformance against WCAG 2.1 AA, with the VPAT as the tangible deliverable.</p></div></li>
-            <li class="process-step" data-reveal><div><h3>Selected &amp; enabled the vendor</h3><p>Led vendor selection for audit-grade validation, then made the partner effective inside a complex product with screen-by-screen documentation and walkthroughs.</p></div></li>
-            <li class="process-step" data-reveal><div><h3>Owned it end to end</h3><p>Drove the effort across product, engineering, and customer success, from a cold start through execution, governance, and customer communication.</p></div></li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- STRATEGIC CHOICE -->
-      <section class="section" id="strategy">
-        <div class="container">
-          <div class="section-head" data-reveal>
-            <span class="eyebrow eyebrow--accent">A strategic choice</span>
-            <h2>Fix risk first, then fix the system</h2>
-            <p>Attempting to correct the entire platform at once would have stalled delivery for months. So I sequenced the work by risk and visibility, protecting the most exposed surfaces first.</p>
-          </div>
-          <div class="phase-grid" data-stagger>
-            <article class="card phase-card" data-reveal>
-              <div class="phase-card__head"><span class="phase-card__n">Phase 1</span><span class="phase-card__q">End user</span></div>
-              <h3>Brand-visible, high-traffic, legally exposed</h3>
-              <ul>
-                <li>Survey response pages</li>
-                <li>Emails</li>
-                <li>Email opt-out pages</li>
-                <li>Email inline surveys</li>
-              </ul>
-            </article>
-            <article class="card phase-card" data-reveal>
-              <div class="phase-card__head"><span class="phase-card__n">Phase 2</span><span class="phase-card__q">Customer Success Manager</span></div>
-              <h3>Daily operational surfaces</h3>
-              <ul>
-                <li>Gainsight Home</li>
-                <li>Timeline &amp; Cockpit</li>
-                <li>Customer 360 &amp; Relationship 360</li>
-                <li>Spaces</li>
-              </ul>
-            </article>
-            <article class="card phase-card" data-reveal>
-              <div class="phase-card__head"><span class="phase-card__n">Phase 3</span><span class="phase-card__q">Administrator</span></div>
-              <h3>Configuration &amp; foundations</h3>
-              <ul>
-                <li>Admin and setup surfaces</li>
-                <li>Completes platform-wide coverage</li>
-                <li>Lower day-to-day exposure</li>
-              </ul>
-            </article>
-          </div>
-          <div class="card" data-reveal style="margin-top:var(--space-xl)">
-            <p class="measure" style="font-size:var(--step-1);color:var(--ink)">
-              This meant temporarily living with known issues in lower-risk areas, but it allowed measurable progress
-              without paralyzing the roadmap.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- EQUIP TEAMS / OPERATING MODEL -->
-      <section class="section section--tight" id="enable">
-        <div class="container">
-          <div class="section-head" data-reveal>
-            <span class="eyebrow eyebrow--accent">Equip teams &amp; make the audit usable</span>
-            <h2>Turning findings into an operating model</h2>
-            <p>A vendor audit answers "what's broken." Teams still had to answer "what does this mean for us." Engineers asked what a finding meant in our context; PMs asked whether a change altered how a feature behaved. I built the connective tissue to answer both.</p>
-          </div>
-          <ol class="process-list" data-stagger>
-            <li class="process-step" data-reveal><div><h3>Screen-by-screen flow documentation</h3><p>Mapped each in-scope surface so findings landed against a concrete screen and state, not an abstract rule.</p></div></li>
-            <li class="process-step" data-reveal><div><h3>Feature walkthrough recordings</h3><p>Recorded flows and business context so the vendor and engineers understood the why behind each screen, not just the markup.</p></div></li>
-          </ol>
-          <figure class="figure figure--pad figure--tile" data-reveal style="margin-top:var(--space-2xl)">
-            <img src="/assets/accessibility-1/new-feature-mapping.png" width="1600" height="900" loading="lazy"
-                 alt="Spreadsheet mapping features, screens, and accessibility findings row by row for vendor and engineering reference." />
-            <figcaption>Feature mapping: each screen and finding documented to reduce interpretation. Reducing interpretation was the goal.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- WHAT CHANGED IN PHASE 1 -->
-      <section class="section" id="phase1">
-        <div class="container">
-          <div class="section-head" data-reveal>
-            <span class="eyebrow eyebrow--accent">What changed in Phase 1</span>
-            <h2>Communicating the change to customers</h2>
-            <p>Bringing structure to the most exposed surfaces produced concrete, testable change. Critical violations dropped significantly across high-traffic surfaces.</p>
-          </div>
-          <div class="grid grid--2" data-stagger>
-            <article class="card" data-reveal>
-              <div class="cs-meta__label">Before</div>
-              <ul class="recap-list" style="margin-top:var(--space-md)">
-                <li>Headings skipped levels</li>
-                <li>Inputs weren't labeled programmatically</li>
-                <li>Focus order jumped unpredictably</li>
-                <li>Confirmation messages weren't announced</li>
-              </ul>
-            </article>
-            <article class="card" data-reveal style="background:var(--surface-2)">
-              <div class="cs-meta__label">After</div>
-              <ul class="recap-list" style="margin-top:var(--space-md)">
-                <li>Semantic hierarchy stabilized</li>
-                <li>Predictable tab traversal</li>
-                <li>ARIA roles clarified</li>
-                <li>Dynamic announcements implemented</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="card" data-reveal style="margin-top:var(--space-2xl)">
-            <span class="eyebrow eyebrow--accent">But Phase 1 revealed a truth</span>
-            <p class="measure" style="margin-top:var(--space-sm);font-size:var(--step-1);color:var(--ink)">
-              If we kept fixing screens individually, the accessibility debt would return. The real fix had to move
-              upstream, to the components themselves.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- GOVERNANCE / TURNING POINT -->
-      <section class="section" id="governance">
+      <!-- 8 · PHASE 2 GAVE ME AN OPENING -->
+      <section class="section" id="phase2">
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">The turning point</span>
-            <h2>Fixing it at the component level</h2>
-            <p>As audits continued, it became clear that component inconsistency was the root cause. Multiple versions of modals, dropdowns, buttons, and form controls. Each slightly different. Each slightly off. So Phase 2 became about entropy reduction.</p>
+            <h2>Phase 2 gave me an opening</h2>
+            <p>Phase 1 taught us something uncomfortable. The same failures kept recurring across different screens because they were not really screen problems.</p>
           </div>
+
+          <div class="card" data-reveal style="background:var(--surface-2)">
+            <span class="eyebrow eyebrow--accent">Design system drift</span>
+            <p class="measure" style="margin-top:var(--space-sm);font-size:var(--step-1);color:var(--ink)">
+              The same components, dropdowns for example, existed in multiple variations across modules. Each behaved
+              slightly differently and implemented accessibility inconsistently. That realization ultimately shifted the
+              direction of the work: from fixing screens to fixing the system underneath them.
+            </p>
+          </div>
+
+          <div class="section-head" data-reveal style="margin-top:var(--space-2xl)">
+            <p>Fixing them screen by screen would have worked, briefly. The debt would have returned the moment someone reused an old component.</p>
+            <p>CSM-facing modules were also running behind on the design system. So I made the case to leadership that one effort could close two problems: bring the modules up to the current design system version, and make them accessible in the process.</p>
+          </div>
+
           <div data-stagger>
             <div class="decision" data-reveal>
               <div class="decision__n">01</div>
               <div>
-                <h3>Mapped occurrences module by module</h3>
-                <p class="decision__r">Conducted a structured component review and mapped where each variant appeared, screen by screen, to see the true scope of the drift.</p>
+                <h3>Mapped the drift, module by module</h3>
+                <p class="decision__r">My team and I divided the surfaces and captured screenshots of every component discrepancy, screen by screen, to see the true scope of the problem.</p>
               </div>
             </div>
             <div class="decision" data-reveal>
               <div class="decision__n">02</div>
               <div>
-                <h3>Defined canonical versions</h3>
-                <p class="decision__r">Recommended a single accessible version of each component so conformance became a property of the system, not a per-screen effort.</p>
+                <h3>Pointed engineering to the canonical version</h3>
+                <p class="decision__r">Mapped each discrepancy to the correct design system component, so conformance became a property of the system rather than a per-screen effort.</p>
               </div>
             </div>
             <div class="decision" data-reveal>
@@ -347,7 +372,7 @@
               <div>
                 <h3>Reviewed weekly, decided by use case</h3>
                 <p class="decision__r">Aligned weekly on use-case-driven decisions so adoption stayed grounded in real product needs.</p>
-                <span class="decision__takeaway">Less visible than Phase 1. But more important.</span>
+                <span class="decision__takeaway">Less visible than Phase 1. More important.</span>
               </div>
             </div>
           </div>
@@ -378,13 +403,15 @@
         </div>
       </section>
 
-      <!-- REDUCING AMBIGUITY FOR ENGINEERING -->
-      <section class="section" id="engineering">
+      <!-- 9 · SPECIFYING THE BEHAVIOUR, NOT JUST THE VIOLATION -->
+      <section class="section" id="spec">
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Reducing ambiguity for engineering</span>
-            <h2>Specifying the accessible behaviour</h2>
-            <p>Default audit output left implementation open to interpretation. So I documented the expected behavior at the level engineers actually build against: announcements, focus, and error states. PMs vetted the documentation before handoff. Engineers no longer had to infer accessibility behavior. It was specified.</p>
+            <h2>Specifying the behaviour, not just the violation</h2>
+            <p>Audit output tells engineers what is broken. It does not tell them what correct looks like.</p>
+            <p>So I documented the expected behaviour at the level engineers actually build against: what the screen reader should announce for each control, where focus moves when a modal opens and closes, and what gets announced when one field is invalid versus when five are. PMs reviewed the documentation before handoff.</p>
+            <p>Engineers stopped inferring accessible behaviour. It was specified.</p>
           </div>
           <ul class="recap-list" data-stagger>
             <li data-reveal>Screen-reader announcement expectations documented per control</li>
@@ -417,58 +444,49 @@
         </div>
       </section>
 
-      <!-- SCALING BEYOND MANUAL OVERSIGHT -->
-      <section class="section" id="scaling">
+      <!-- 10 · WORKING THE FIXES DOWN MYSELF -->
+      <section class="section" id="remediation">
         <div class="container">
-          <div class="feature-row">
-            <div class="feature-row__text" data-reveal>
-              <span class="eyebrow eyebrow--accent">Scaling beyond manual oversight</span>
-              <h2>Building accessibility into the workflow</h2>
-              <p>Manual governance does not scale indefinitely. Many violations were detectable at the code level before release, so to prevent recurrence we developed an internal AI-assisted plug-in.</p>
-            </div>
-            <div class="feature-row__text" data-reveal>
-              <ul class="recap-list">
-                <li>Scans markup against accessibility standards</li>
-                <li>Flags violations inline</li>
-                <li>Suggests replacement semantic code</li>
-                <li>References the relevant WCAG guidance</li>
-              </ul>
-            </div>
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">Scaling the remediation</span>
+            <h2>Working the fixes down myself</h2>
+            <p>By Phase 2, AI tools were part of how I worked day to day.</p>
+            <p>After reviewing the findings, I identified the issues that were UI-only: the ones that carried no risk to data integrity and no dependency on other modules. Because the platform is interconnected, that judgement mattered more than the fix itself. Getting it wrong would have broken something else.</p>
+            <p>For those issues, I wrote the fixes myself using AI tooling. Engineering reviewed them and shipped them through the normal process.</p>
+            <p>It moved a meaningful volume of repetitive UI remediation off the front-end team's plate, and it let their time go to the fixes that genuinely needed an engineer.</p>
           </div>
-          <p class="measure" data-reveal style="margin-top:var(--space-lg);color:var(--ink-2)">
-            Instead of discovering issues during audits, engineers could resolve them during development. Accessibility
-            shifted from periodic detection to embedded feedback.
-          </p>
           <div class="grid grid--2" data-stagger style="margin-top:var(--space-2xl)">
             <figure class="figure figure--pad figure--tile" data-reveal>
+              <!-- TODO: confirm placement/caption — this image is a Lighthouse browser audit of a survey (passing checks), not AI-assisted remediation. Suggested caption did not match; using an accurate description. -->
               <img src="/assets/accessibility-1/ai-plugin.jpg" width="1600" height="900" loading="lazy"
-                   alt="Internal AI-assisted plug-in scanning markup and flagging accessibility violations during development." />
-              <figcaption>The plug-in flags violations against accessibility standards as code is written.</figcaption>
+                   alt="A survey preview validated with a browser accessibility audit reporting passing checks for contrast, permitted ARIA attributes, document title, and lang." />
+              <figcaption>Reviewing a violation against the accessibility standard before writing the fix.</figcaption>
             </figure>
             <figure class="figure figure--pad figure--tile" data-reveal>
+              <!-- TODO: confirm placement/caption — this image is the Configure Filters dialog with a UX annotation (remove the empty default filter row), not a semantic-code suggestion. Suggested caption did not match; using an accurate description. -->
               <img src="/assets/accessibility-1/ai-suggestions.jpg" width="1600" height="900" loading="lazy"
-                   alt="Plug-in suggesting replacement semantic markup with a reference to the relevant WCAG guidance." />
-              <figcaption>It suggests replacement semantic code and links the relevant WCAG guidance.</figcaption>
+                   alt="The Configure Filters dialog annotated with a fix note to remove the empty default filter row." />
+              <figcaption>Working through a semantic markup correction for a UI-only issue.</figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <!-- CUSTOMER COMMUNICATION & RETENTION -->
+      <!-- 11 · STAYING CLOSE TO THE CUSTOMERS -->
       <section class="section" id="customers">
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Customer communication &amp; retention</span>
-            <h2>What it changed for customers</h2>
-            <p>Sequencing customer-facing surfaces first wasn't only a technical call, it was a retention strategy. I kept high-value accounts close while the work was in flight.</p>
+            <h2>Staying close to the customers</h2>
+            <p>Sequencing customer-facing surfaces first was not only a technical call. It was a retention decision.</p>
           </div>
           <div class="impact" data-reveal>
             <div>
               <span class="eyebrow eyebrow--accent">Business impact</span>
               <blockquote style="margin-top:var(--space-md)">
-                <p>Direct, proactive communication with high-ARR accounts, plus visible progress on the issues they cared about, prevented at least one key customer from churning.</p>
+                <p>I kept the accounts who had raised accessibility close while the work was in flight: direct updates, honest progress, and visible movement on the specific issues they had asked about. The VPAT and the public accessibility statement gave them something concrete to point to internally.</p>
               </blockquote>
-              <p style="margin-top:var(--space-lg)">I maintained ongoing updates with customers tracking accessibility, building confidence that the initiative was real, owned, and on track.</p>
+              <p style="margin-top:var(--space-lg)">At least one high-ARR account that had been tracking this stayed.</p>
             </div>
             <div class="card" style="background:var(--surface-2)">
               <div class="cs-meta__label">Retention playbook</div>
@@ -491,32 +509,33 @@
         </div>
       </section>
 
-      <!-- OUTCOMES / WHAT ACTUALLY CHANGED -->
-      <section class="section" id="outcomes">
+      <!-- 12 · WHAT CHANGED -->
+      <section class="section" id="changed">
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">What actually changed</span>
-            <h2>What actually changed</h2>
+            <h2>What changed</h2>
           </div>
 
           <div class="grid grid--2" data-stagger style="margin-bottom:var(--space-2xl)">
             <article class="card" data-reveal>
               <div class="cs-meta__label">Before</div>
               <ul class="recap-list" style="margin-top:var(--space-md)">
-                <li>Accessibility was reactive</li>
-                <li>Component fragmentation</li>
-                <li>Interpretation variance</li>
-                <li>Audit-dependent</li>
+                <li>Accessibility was reactive and unowned</li>
+                <li>The same components existed in multiple versions</li>
+                <li>Audit findings arrived as a flat bug list</li>
+                <li>Engineers inferred accessible behaviour</li>
+                <li>No enterprise-ready proof</li>
               </ul>
             </article>
             <article class="card" data-reveal style="background:var(--surface-2)">
               <div class="cs-meta__label">After</div>
               <ul class="recap-list" style="margin-top:var(--space-md)">
-                <li>Risk-prioritized roadmap</li>
-                <li>Canonical components</li>
-                <li>Clear execution blueprints</li>
-                <li>AI-assisted detection</li>
-                <li>Embedded governance cadence</li>
+                <li>A funded program with an owner and a definition of done</li>
+                <li>One accessible version of each, adopted across modules</li>
+                <li>Findings triaged, clarified, and specified before handoff</li>
+                <li>Behaviour documented per control</li>
+                <li>VPAT obtained and a public accessibility statement live</li>
               </ul>
             </article>
           </div>
@@ -530,24 +549,29 @@
             </div>
           </figure>
 
-          <div class="metrics-band" data-stagger style="margin-bottom:var(--space-2xl)">
-            <div class="grid grid--metrics">
+          <div class="metrics-band" data-stagger>
+            <div class="grid grid--metrics is-3">
               <div class="metric-card stat" data-reveal><div class="stat__value">VPAT</div><div class="stat__label">Documentation obtained</div><div class="stat__sub">Enterprise-ready proof</div></div>
-              <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="1">0</span>+</div><div class="stat__label">High-ARR account retained</div><div class="stat__sub">Churn prevented</div></div>
-              <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="3">0</span></div><div class="stat__label">Risk-based phases</div><div class="stat__sub">End user → CSM → Admin</div></div>
-              <div class="metric-card stat" data-reveal><div class="stat__value">AI</div><div class="stat__label">In-development checks</div><div class="stat__sub">Embedded, not periodic</div></div>
+              <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="3">0</span></div><div class="stat__label">Risk-based phases</div><div class="stat__sub">End user &rarr; CSM &rarr; Admin</div></div>
+              <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="1">0</span></div><div class="stat__label">High-ARR account retained</div><div class="stat__sub">Churn prevented</div></div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="card" data-reveal data-progress-hide style="background:var(--surface-2)">
+      <!-- 13 · WHAT I WOULD DO DIFFERENTLY -->
+      <section class="section" id="reflection" data-progress-hide>
+        <div class="container">
+          <div class="card" data-reveal style="background:var(--surface-2)">
             <span class="eyebrow eyebrow--accent">Leadership reflection</span>
-            <h3 style="margin-top:var(--space-sm)">Where I led the program</h3>
+            <h3 style="margin-top:var(--space-sm)">What I would do differently</h3>
             <p class="measure" style="margin-top:var(--space-sm)">
-              The biggest change wasn't visual, it was predictability. By securing a mandate, fixing risk first, and then
-              the system underneath, accessibility stopped being a recurring scramble and became a property of how the
-              product was built: canonical components, specified behavior, and detection in the development loop. The
-              lasting value wasn't any single remediated screen, it was the program, initiated and owned end to end, and
-              the enterprise trust it earned.
+              The program worked, but it started later than it should have. The signals were there for a year before
+              anyone, including me, treated them as one problem instead of many small ones.
+            </p>
+            <p class="measure" style="margin-top:var(--space-md)">
+              Unowned work does not announce itself. It arrives as a series of manageable requests, and it stays
+              invisible until someone decides to count them.
             </p>
           </div>
         </div>

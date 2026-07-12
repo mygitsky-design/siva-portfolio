@@ -696,6 +696,8 @@ figure { margin: 0; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
 .grid--metrics { grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+.metrics-band .grid--metrics.is-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 780px) { .metrics-band .grid--metrics.is-3 { grid-template-columns: 1fr; } }
 
 /* Work / case-study index card */
 .work-card {
@@ -1164,7 +1166,7 @@ figure { margin: 0; }
 
 /* Phase cards */
 .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
-.phase-card { display: flex; flex-direction: column; }
+.phase-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--space-xl); }
 .phase-card__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); }
 .phase-card__n { font-family: var(--font-mono); color: var(--accent-ink); font-size: var(--step--1); }
 .phase-card__q { font-size: var(--step--1); color: var(--muted); }
