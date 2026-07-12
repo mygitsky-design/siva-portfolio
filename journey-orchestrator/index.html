@@ -1010,13 +1010,10 @@
     <div style="text-align:center;">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#3C4A5E;">Recap</div>
       <h2 style="margin:22px auto 0;font-size:clamp(30px,4vw,58px);line-height:1.0;font-weight:700;letter-spacing:-0.035em;max-width:18ch;">What the rebuild changed for admins</h2>
-      <div style="margin:32px auto 0;max-width:none;display:flex;flex-direction:column;gap:14px;">
-        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;white-space:nowrap;">Templates to streamline and make the overall program building simple and super fast.</p>
-        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;white-space:nowrap;">Advanced AI capabilities to create a source seamlessly without leaving your current workspace.</p>
-        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;white-space:nowrap;">Drag-and-drop nodes right on your screen.</p>
-        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;white-space:nowrap;">Versioning helps track changes and experiment with different program configurations.</p>
-        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;white-space:nowrap;">Testing capabilities ensure the programs are robust and error-free.</p>
-        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;white-space:nowrap;">Streamline sending out communications dynamically with the new Dynamic Participant Timezone.</p>
+      <div style="margin:32px auto 0;max-width:62ch;display:flex;flex-direction:column;gap:20px;text-align:left;">
+        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;">The old builder asked admins to hold the whole system in their head before they could do anything safely. You needed to know which steps could be changed after publish, what a clone would cost you in analytics, and whether a timezone would quietly break a send. Most of that knowledge lived in people, not in the product.</p>
+        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;">The rebuild put it back into the workflow. Admins could start from a template instead of a blank canvas, see the journey as a shape rather than a form, create a source without leaving the program, test before publishing, and change things after launch without cloning.</p>
+        <p style="margin:0;font-size:18px;line-height:1.5;color:#3A414C;">The measurable outcome was setup time. The one that mattered more was confidence: admins stopped needing to be experts in the product's internals before they were allowed to build in it.</p>
       </div>
     </div>
     <div style="margin-top:56px;border-radius:16px;overflow:hidden;border:1px solid #E2E6EC;box-shadow:0 22px 50px -24px rgba(20,28,40,0.30);">
@@ -1110,6 +1107,20 @@
       <span style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;background:#fff;border:1px solid #E2E6EC;border-radius:999px;font-size:14px;font-weight:500;box-shadow:0 10px 26px -22px rgba(20,28,40,.6);"><span style="width:7px;height:7px;border-radius:50%;background:#3C4A5E;"></span>AI Assistance</span>
       <span style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;background:#fff;border:1px solid #E2E6EC;border-radius:999px;font-size:14px;font-weight:500;box-shadow:0 10px 26px -22px rgba(20,28,40,.6);"><span style="width:7px;height:7px;border-radius:50%;background:#3C4A5E;"></span>Versioning</span>
       <span style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;background:#fff;border:1px solid #E2E6EC;border-radius:999px;font-size:14px;font-weight:500;box-shadow:0 10px 26px -22px rgba(20,28,40,.6);"><span style="width:7px;height:7px;border-radius:50%;background:#3C4A5E;"></span>Testing</span>
+    </div>
+  </section>
+
+  <!-- leadership reflection -->
+  <section style="max-width:1240px;margin:150px auto 0;padding:0 48px;">
+    <div style="border-radius:22px;background:#F7F8FA;border:1px solid #E2E6EC;padding:clamp(40px,5vw,72px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#3C4A5E;">Leadership reflection</div>
+      <h3 style="margin:20px 0 0;font-size:clamp(30px,3.8vw,50px);font-weight:700;letter-spacing:-0.035em;line-height:1.05;max-width:20ch;">What I would sequence differently</h3>
+      <div style="margin:28px 0 0;max-width:66ch;display:flex;flex-direction:column;gap:20px;">
+        <p style="margin:0;font-size:18px;line-height:1.55;color:#3A414C;">The workshop got us the right capabilities. It did not get us the right order.</p>
+        <p style="margin:0;font-size:18px;line-height:1.55;color:#3A414C;">Versioning and Testing were treated as two of several features on a roadmap, and they were ranked accordingly. But they were not features. They were the platform's model of state — what a program is between draft and live, what happens to a participant mid-journey, what analytics mean across a change. Every other capability sat on top of assumptions about that model, and for a while those assumptions were implicit.</p>
+        <p style="margin:0;font-size:18px;line-height:1.55;color:#3A414C;">We eventually built the lifecycle model explicitly, and once it existed the hard decisions in Versioning got easier: copy-based drafts, skip-not-delete, cumulative analytics. Those weren't UI choices. They were consequences of the model.</p>
+        <p style="margin:0;font-size:18px;line-height:1.55;color:#3A414C;">If I were doing it again, the lifecycle model would be the first shared artifact — before the vote ranking, before the first screen — and every capability would be argued against it. It would have cost a few weeks up front and saved more than that in rework.</p>
+      </div>
     </div>
   </section>
 

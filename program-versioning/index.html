@@ -15,7 +15,7 @@
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Program Versioning · Case Study" />
-  <meta property="og:description" content="A copy-based draft model that made editing live enterprise programs safe, across three phases and 100+ tickets, with zero active-program disruptions." />
+  <meta property="og:description" content="A copy-based draft model that made editing live enterprise programs safe, across three phases and 94 of 100+ scoped tickets, with zero active-program disruptions." />
   <meta property="og:url" content="https://siva.design/program-versioning" />
   <meta property="og:image" content="https://siva.design/assets/program-builder.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -65,16 +65,7 @@
   .cv-map__node { width:100%; max-width:240px; text-align:center; background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:.65rem .8rem; font-size:var(--step--1); font-weight:600; color:var(--ink); }
   .cv-map__node--accent { background:var(--accent-soft); border-color:rgba(79,70,229,.28); color:var(--accent-ink); }
   .cv-map__arr { color:var(--muted); opacity:.55; font-size:1.05rem; line-height:1; padding:.3rem 0; }
-  .cv-mtx { width:100%; border-collapse:separate; border-spacing:0; font-size:var(--step--1); }
-  .cv-mtx th, .cv-mtx td { padding:.55rem .6rem; text-align:center; border-bottom:1px solid var(--line); }
-  .cv-mtx thead th { font-size:.72rem; font-weight:700; color:var(--ink); }
-  .cv-mtx tbody th { text-align:left; font-weight:600; color:var(--ink-2); white-space:nowrap; }
-  .cv-mtx td { color:var(--ink-2); }
-  .cv-mtx tbody tr:last-child th, .cv-mtx tbody tr:last-child td { border-bottom:0; font-weight:700; }
-  .cv-mtx__sel { background:var(--accent-soft); color:var(--accent-ink) !important; }
-  .cv-mtx thead .cv-mtx__sel { border-radius:10px 10px 0 0; }
-  .cv-mtx tbody tr:last-child .cv-mtx__sel { border-radius:0 0 10px 10px; }
-  .cv-mtx .ok { color:#15803d; } .cv-mtx .no { color:#b42318; }
+  /* .cv-mtx* styles moved to /components/trade-off-matrix.js (reusable component) */
   .cv-arch__cap { grid-column:1/-1; text-align:center; color:var(--muted); font-size:var(--step--1); margin-top:.2rem; }
 
   /* Phased delivery, premium timeline (handoff) */
@@ -110,9 +101,9 @@
     .cv-road__track { grid-template-columns:1fr; gap:1rem; }
     .cv-conn { transform:rotate(90deg); padding:.25rem 0; }
     .cv-arch { grid-template-columns:1fr; }
-    .cv-mtx { font-size:.78rem; }
   }
   </style>
+  <script src="/components/trade-off-matrix.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -189,7 +180,7 @@
                 <ul>
                   <li>Gainsight · GE-160598</li>
                   <li>Multi-quarter · 3 phases</li>
-                  <li>100+ tickets shipped</li>
+                  <li>100+ scoped · 94 closed</li>
                   <li>Released 2025 · phased rollout</li>
                 </ul>
               </div>
@@ -518,18 +509,28 @@
             </div>
             <div class="cv-panel">
               <p class="cv-panel__t">Trade-off matrix, three explored directions</p>
-              <table class="cv-mtx">
-                <thead>
-                  <tr><th scope="col"></th><th scope="col">Edit live</th><th scope="col">Side-by-side</th><th scope="col" class="cv-mtx__sel">Copy-based draft</th></tr>
-                </thead>
-                <tbody>
-                  <tr><th scope="row">Participant safety</th><td>Low</td><td>High</td><td class="cv-mtx__sel">High</td></tr>
-                  <tr><th scope="row">Analytics continuity</th><td>Medium</td><td>Low</td><td class="cv-mtx__sel">High</td></tr>
-                  <tr><th scope="row">Admin experience</th><td>Medium</td><td>Low</td><td class="cv-mtx__sel">High</td></tr>
-                  <tr><th scope="row">Operational risk</th><td>High</td><td>Medium</td><td class="cv-mtx__sel">Low</td></tr>
-                  <tr><th scope="row">Decision</th><td><span class="no">✗</span> Not safe</td><td><span class="no">✗</span> Complex</td><td class="cv-mtx__sel"><span class="ok">✓</span> Chosen</td></tr>
-                </tbody>
-              </table>
+              <trade-off-matrix>
+                <script type="application/json">
+                {
+                  "columns": ["Edit live", "Side-by-side", "Copy-based draft"],
+                  "selected": 2,
+                  "rows": [
+                    { "label": "Participant safety",   "cells": ["Low",    "High",   "High"] },
+                    { "label": "Analytics continuity", "cells": ["Medium", "Low",    "High"] },
+                    { "label": "Admin experience",     "cells": ["Medium", "Low",    "High"] },
+                    { "label": "Operational risk",     "cells": ["High",   "Medium", "Low"] }
+                  ],
+                  "decision": {
+                    "label": "Decision",
+                    "cells": [
+                      { "mark": "no", "text": "Not safe" },
+                      { "mark": "no", "text": "Complex" },
+                      { "mark": "ok", "text": "Chosen" }
+                    ]
+                  }
+                }
+                </script>
+              </trade-off-matrix>
             </div>
             <p class="cv-arch__cap">The platform model was chosen before UI exploration, ensuring every interaction reinforced safety, continuity and analytics integrity.</p>
           </div>
@@ -547,7 +548,7 @@
           <div class="metrics-band" data-stagger style="margin-bottom:var(--space-2xl)">
             <div class="grid grid--metrics">
               <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="3">0</span></div><div class="stat__label">Phases shipped</div><div class="stat__sub">Multi-quarter</div></div>
-              <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="100">0</span>+</div><div class="stat__label">Tickets closed</div><div class="stat__sub">Across all phases</div></div>
+              <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="94">0</span></div><div class="stat__label">Tickets closed</div><div class="stat__sub">of 100+ scoped</div></div>
               <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="3">0</span></div><div class="stat__label">Rollout milestones</div><div class="stat__sub">May–Jun 2025</div></div>
               <div class="metric-card stat" data-reveal><div class="stat__value"><span data-count="0">0</span></div><div class="stat__label">Active-program disruptions</div><div class="stat__sub">On re-publish</div></div>
             </div>
@@ -565,7 +566,7 @@
                 <tr><td>Spike / POC</td><td>Backend analysis &amp; UI flow builder POC for Phase 3</td><td>2</td></tr>
                 <tr><td>Bugs</td><td>Publishing failure edge case, union mapping condition, evaluate preview</td><td>8</td></tr>
                 <tr><td>Tasks</td><td>UI tech analysis, PX trackers, security review, microcopy</td><td>12</td></tr>
-                <tr><td>Total</td><td>All categories across three sub-epics</td><td>100+</td></tr>
+                <tr><td>Total</td><td>All categories across three sub-epics</td><td>100+ scoped</td></tr>
               </tbody>
             </table>
           </div>

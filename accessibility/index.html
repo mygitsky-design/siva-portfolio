@@ -24,6 +24,7 @@
 
   <script>document.documentElement.className = "js";</script>
   <link rel="stylesheet" href="/styles.css" />
+  <script src="/components/trade-off-matrix.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -55,6 +56,7 @@
     <a data-section-link href="#funded"><span class="dot" aria-hidden="true"></span><span class="txt">Funded</span></a>
     <a data-section-link href="#vendor"><span class="dot" aria-hidden="true"></span><span class="txt">Vendor</span></a>
     <a data-section-link href="#coverage"><span class="dot" aria-hidden="true"></span><span class="txt">Coverage</span></a>
+    <a data-section-link href="#decision"><span class="dot" aria-hidden="true"></span><span class="txt">Decision</span></a>
     <a data-section-link href="#phases"><span class="dot" aria-hidden="true"></span><span class="txt">Phasing</span></a>
     <a data-section-link href="#findings"><span class="dot" aria-hidden="true"></span><span class="txt">Findings</span></a>
     <a data-section-link href="#phase2"><span class="dot" aria-hidden="true"></span><span class="txt">Phase 2</span></a>
@@ -220,6 +222,44 @@
                  alt="Excel workbook mapping the product architecture: modules, pages and features, element classifications, and the flows and states in scope for the accessibility audit." />
             <figcaption>Feature mapping: every screen documented before testing began, so audit coverage was a decision rather than an accident.</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <!-- 5.5 · THE DECISION — how to sequence the work -->
+      <section class="section" id="decision">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">The decision</span>
+            <h2>Three ways to sequence two years of work</h2>
+            <p>Once the audit scope was clear, the sequencing question was the real decision. Three options were on the table, and each closed off something.</p>
+          </div>
+          <trade-off-matrix data-reveal>
+            <script type="application/json">
+            {
+              "columns": ["Fix everything at once", "Fix components first", "Sequence by customer risk"],
+              "selected": 2,
+              "rows": [
+                { "label": "Customer-facing risk", "cells": ["Closed eventually", "Stays open for months", "Closed first"] },
+                { "label": "Root cause addressed", "cells": ["Yes", "Yes", "Deferred to Phase 2"] },
+                { "label": "Roadmap impact", "cells": ["Stalls delivery", "Moderate", "Absorbed"] },
+                { "label": "Visible progress", "cells": ["None until the end", "Slow to surface", "Early and demonstrable"] },
+                { "label": "Rework risk", "cells": ["Low", "Low", "Some Phase 1 fixes redone at component level"] }
+              ],
+              "decision": {
+                "label": "Decision",
+                "cells": [
+                  { "mark": "no", "text": "Too slow" },
+                  { "mark": "no", "text": "Leaves customers exposed" },
+                  { "mark": "ok", "text": "Chosen" }
+                ]
+              }
+            }
+            </script>
+          </trade-off-matrix>
+          <div class="section-head" data-reveal style="margin-top:var(--space-2xl)">
+            <p><b>What we gave up.</b> Sequencing by risk meant some Phase 1 fixes were made at the screen level and then made again at the component level in Phase 2. We knowingly accepted that rework in exchange for closing customer-facing exposure early, and for having something credible to show the accounts who were asking.</p>
+            <p>It also meant living with known issues in admin surfaces for over a year.</p>
+          </div>
         </div>
       </section>
 
@@ -449,7 +489,7 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Scaling the remediation</span>
-            <h2>Working the fixes down myself</h2>
+            <h2>Reducing engineering load with AI-assisted fixes</h2>
             <p>By Phase 2, AI tools were part of how I worked day to day.</p>
             <p>After reviewing the findings, I identified the issues that were UI-only: the ones that carried no risk to data integrity and no dependency on other modules. Because the platform is interconnected, that judgement mattered more than the fix itself. Getting it wrong would have broken something else.</p>
             <p>For those issues, I wrote the fixes myself using AI tooling. Engineering reviewed them and shipped them through the normal process.</p>
