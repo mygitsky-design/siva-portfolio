@@ -73,6 +73,7 @@
             Program Test Run lets Journey Orchestrator admins dry-run complex, multi-step programs before they go live.
             I co-authored the PRD with the PM and designed the full experience, reframing the brief from &ldquo;build a testing feature&rdquo;
             to the real question: <em>how do you make publishing feel safe for the first time?</em>
+            It was developed as part of the broader <a href="/journey-orchestrator" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px;">Journey Orchestrator</a> transformation.
           </p>
 
           <div class="cs-hero__meta" data-stagger>
@@ -146,7 +147,7 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow">The problem, from the customer's mouth</span>
-            <h2>Publishing was a costly, irreversible experiment</h2>
+            <h2>Admins could only find errors after publishing</h2>
             <p>The PRD was grounded in direct customer feedback, not internal assumption. Two pain signals drove the brief.</p>
           </div>
           <div class="grid grid--2" data-stagger>
@@ -184,7 +185,7 @@
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">The central decision</span>
             <h2>Original vision vs. what shipped</h2>
-            <p>The PRD proposed a far broader scope than the MVP. The gap was a deliberate product decision, not a failure. Each cut protected the core promise: a simulation that is fast, safe, and easy to interpret.</p>
+            <p>The PRD proposed a far broader scope than the MVP. Trimming it was a deliberate product decision made against the release window: each cut kept the simulation fast, safe, and easy to interpret, and the rest was documented for a later phase.</p>
           </div>
 
           <div class="vs-grid" data-stagger>
@@ -227,7 +228,7 @@
               <span class="ph-label">The PRD scope table: the MVP-vs-future split with explicit TBD markers, the decision record behind these cuts</span>
               <span class="ph-hint">Screenshot to add</span>
             </div>
-            <figcaption>The scoping decision wasn't a failure, it was documented, deliberate, and defensible in the PRD.</figcaption>
+            <figcaption>The scoping decision was documented and deliberate, with the reasoning captured in the PRD.</figcaption>
           </figure>
         </div>
       </section>
@@ -237,15 +238,15 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Design process</span>
-            <h2>PRD-first, prototype-first</h2>
+            <h2>Designing the test experience</h2>
           </div>
           <ol class="process-list" data-stagger>
             <li class="process-step" data-reveal><div><h3>Customer research &amp; PRD authoring</h3><p>Reviewed customer screen recordings of participant drops and community threads describing cloning workarounds, then co-authored the PRD: problem framing, solution workflow, user stories, acceptance criteria, and the MVP-vs-future split, all before a single screen.</p></div></li>
             <li class="process-step" data-reveal><div><h3>Flow mapping on Miro</h3><p>Mapped the full state space with PM, program states, test-mode transitions, selection logic, dry-run paths, result states. This caught a key ambiguity early: what if another admin opens the program mid-test? Answer: a multi-user lock with a clear read-only state.</p></div></li>
-            <li class="process-step" data-reveal><div><h3>Prototype-first, before engineering POC</h3><p>Built an interactive prototype on Vercel before engineering's backend spike, validating the core flow with PM. This let both tracks run in parallel, engineering spiked the dry-run engine while design iterated on the interaction model.</p></div></li>
+            <li class="process-step" data-reveal><div><h3>Prototyping before the engineering POC</h3><p>Built an interactive prototype on Vercel before engineering's backend spike, validating the core flow with PM. This let both tracks run in parallel, engineering spiked the dry-run engine while design iterated on the interaction model.</p></div></li>
             <li class="process-step" data-reveal><div><h3>Figma mocks through build</h3><p>Maintained a living spec across every screen and error state, adjusting in real time as engineering surfaced backend constraints like participant-count caps.</p></div></li>
             <li class="process-step" data-reveal><div><h3>Scope negotiation under constraint</h3><p>The Next-button simulation, approval gates, and test-send email were deferred mid-build. Each removal required a design response, updating the PRD, communicating the change in rollout notes, and ensuring the remaining feature still answered the core trust question.</p></div></li>
-            <li class="process-step" data-reveal><div><h3>QA partnership, every state is a designed state</h3><p>Worked with QA across 13 test dimensions and defined UI states for dry-run failure, empty pool, multi-user lock, field-validation warnings, and exit confirmation, none left to engineering.</p></div></li>
+            <li class="process-step" data-reveal><div><h3>QA partnership on every state</h3><p>Worked with QA across 13 test dimensions and defined UI states for dry-run failure, empty pool, multi-user lock, field-validation warnings, and exit confirmation, none left to engineering.</p></div></li>
           </ol>
           <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-2xl)">
             <!-- TODO: replace placeholder with PRD + prototype artifact -->
@@ -264,13 +265,13 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Key design decisions</span>
-            <h2>Five decisions that protected the core promise</h2>
+            <h2>Key decisions that shaped the test experience</h2>
           </div>
           <div data-stagger>
             <div class="decision" data-reveal>
               <div class="decision__n">01</div>
               <div>
-                <h3>Separate view, not an overlay</h3>
+                <h3>A separate view instead of an overlay</h3>
                 <p class="decision__c"><b>Challenge:</b> an overlay or side-by-side split created ambiguity about whether the admin was &lsquo;in&rsquo; the live program or the test.</p>
                 <p class="decision__r"><b>Resolution:</b> test mode opens in a completely separate view, the editor is gone, editing is disabled, a persistent blue banner anchors context, and the only exit is explicit.</p>
                 <span class="decision__takeaway">Separate view + banner = zero context confusion</span>
@@ -279,7 +280,7 @@
             <div class="decision" data-reveal>
               <div class="decision__n">02</div>
               <div>
-                <h3>Real participants, not synthetic data</h3>
+                <h3>Testing with real participants</h3>
                 <p class="decision__c"><b>Challenge:</b> custom condition values and test-sends to internal IDs were appealing, but they shifted the simulation away from reality.</p>
                 <p class="decision__r"><b>Resolution:</b> the dry run uses actual synced participants and real field values, with token resolution through the same pipeline as live execution. What admins preview is exactly what customers would receive.</p>
                 <span class="decision__takeaway">Real data = real confidence</span>
@@ -306,7 +307,7 @@
             <div class="decision" data-reveal>
               <div class="decision__n">05</div>
               <div>
-                <h3>Removing auto-sync, a trust decision</h3>
+                <h3>Removing auto-sync</h3>
                 <p class="decision__c"><b>Challenge:</b> adding a source auto-synced test participants, confusing admins about where participants came from or whether they were real.</p>
                 <p class="decision__r"><b>Resolution:</b> auto-sync was removed entirely; participants now enter only through explicit manual sync. &lsquo;Sync All&rsquo; became &lsquo;Sync&rsquo; to reinforce intent. This was a behaviour change affecting <b>all</b> programs, requiring cross-functional alignment, not just a test-mode tweak.</p>
                 <span class="decision__takeaway">Manual-only sync = full admin control</span>
@@ -325,7 +326,7 @@
         <div class="container">
           <div class="section-head" data-reveal>
             <span class="eyebrow eyebrow--accent">Screens designed</span>
-            <h2>From entry to snapshot, the shipped flow</h2>
+            <h2>The shipped test flow</h2>
           </div>
 
           <div class="grid grid--2" data-stagger>
@@ -388,7 +389,7 @@
 
           <div class="card" data-reveal style="margin-top:var(--space-2xl);background:var(--surface-2)">
             <span class="eyebrow eyebrow--accent">Leadership reflection</span>
-            <h3 style="margin-top:var(--space-sm)">Evidence of design leadership, not just execution</h3>
+            <h3 style="margin-top:var(--space-sm)">Where I led, and where the team delivered</h3>
             <p class="measure" style="margin-top:var(--space-sm)">The PRD came out of the design process, problem framing, solution workflow, and the MVP-vs-future split were design contributions before a screen was touched. The prototype was running before engineering had a backend POC. The hardest decision was letting go of the feature the PRD spent the most words on, the step-by-step simulator, in favour of a faster, more focused dry run that answered the user's core question better. That conviction, under technical constraint, is the strategy.</p>
           </div>
         </div>
@@ -399,8 +400,8 @@
     <section class="section">
       <div class="container">
         <div class="cta" data-reveal>
-          <h2>Looking for a leader who scopes with conviction?</h2>
-          <p>From co-authoring the PRD to every designed error state, I turn ambiguous problems into shippable, trustworthy products.</p>
+          <h2>Interested in working together?</h2>
+          <p>I co-authored the PRD and designed every state down to the error cases. I am comfortable carrying an ambiguous problem all the way to something shippable and trustworthy.</p>
           <a class="btn btn--accent" href="/contact">Get in touch
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
