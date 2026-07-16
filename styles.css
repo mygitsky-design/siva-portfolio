@@ -300,8 +300,8 @@ strong { color: var(--ink); font-weight: 600; }
 .btn--primary { background: var(--ink); color: var(--bg); }
 .btn--primary:hover { box-shadow: var(--shadow-md); }
 
-.btn--accent { background: var(--accent); color: var(--on-accent); }
-.btn--accent:hover { box-shadow: 0 12px 28px -10px var(--accent); }
+.btn--accent { background: #3c4a5e; color: #fff; }
+.btn--accent:hover { box-shadow: 0 12px 28px -10px #3c4a5e; }
 
 .btn--ghost {
   background: transparent;
@@ -673,10 +673,10 @@ figure { margin: 0; }
    --------------------------------------------------------------- */
 
 /* Hero */
-.hero { padding-block: clamp(3.5rem, 2rem + 9vw, 9rem) var(--section-y); }
-.hero__title { margin-top: var(--space-lg); max-width: 16ch; }
+.hero { padding-block: clamp(1.5rem, 5.5vh, 7rem) var(--section-y); }
+.hero__title { margin-top: clamp(0.75rem, 2vh, var(--space-lg)); max-width: 16ch; }
 .hero__lead {
-  margin-top: var(--space-lg);
+  margin-top: clamp(0.75rem, 2vh, var(--space-lg));
   font-size: var(--step-1);
   color: var(--ink-2);
   max-width: 54ch;
