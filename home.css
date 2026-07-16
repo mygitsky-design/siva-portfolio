@@ -78,7 +78,7 @@
 .home-cine .card--hover:hover, .home-cine .work-card:hover { transform: translateY(-5px); box-shadow: 0 24px 54px rgba(60,64,82,.15); }
 .home-cine .metrics-band { background: rgba(255,255,255,.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-radius: 16px; }
 :root[data-theme="dark"] .home-cine .metrics-band { background: rgba(28,28,36,.55); }
-.home-cine .btn--accent { background: linear-gradient(135deg, #6c74c4, #5b5bd6); }
+.home-cine .btn--accent { background: #3c4a5e; }
 
 /* Headline word entrance + magnetic CTA easing */
 .home-cine .hero__title .hc-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .04em; }
