@@ -1265,5 +1265,39 @@ document.addEventListener("DOMContentLoaded",function(){
   window.addEventListener("resize",upd);
 })();
 </script>
+<script>
+/* Section-progress rail: manual scroll + active-state. This page has no shared
+   script.js, and native `scroll-behavior: smooth` fragment navigation no-ops
+   here (Chromium overflow bug), so wire the dots up explicitly. */
+(function(){
+  var links=[].slice.call(document.querySelectorAll(".cs-progress [data-section-link]"));
+  if(!links.length) return;
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function scrollToY(t){
+    if(reduce){window.scrollTo({top:t,behavior:"auto"});return;}
+    var s=window.scrollY,d=t-s,dur=Math.min(900,Math.max(300,Math.abs(d)*0.35)),st=null;
+    function step(ts){if(st===null)st=ts;var p=Math.min(1,(ts-st)/dur);window.scrollTo({top:s+d*(1-Math.pow(1-p,3)),behavior:"auto"});if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var map=new Map();
+  links.forEach(function(link){
+    var sec=document.getElementById(link.getAttribute("href").slice(1));
+    if(sec) map.set(sec,link);
+    link.addEventListener("click",function(e){
+      if(!sec) return;
+      e.preventDefault();
+      var y=Math.max(0,sec.getBoundingClientRect().top+window.scrollY-24);
+      scrollToY(y);
+      history.replaceState(null,"","#"+link.getAttribute("href").slice(1));
+    });
+  });
+  if(map.size){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.classList.remove("is-active");});var lk=map.get(en.target);if(lk)lk.classList.add("is-active");}});},{rootMargin:"-45% 0px -45% 0px"});
+    map.forEach(function(_,sec){io.observe(sec);});
+    var prog=document.querySelector(".cs-progress"),out=document.querySelector("[data-progress-hide]")||document.getElementById("outcomes");
+    if(prog&&out){var ho=new IntersectionObserver(function(es){es.forEach(function(e){var passed=e.isIntersecting||e.boundingClientRect.top<0;prog.classList.toggle("is-hidden",passed);});},{rootMargin:"0px 0px -55% 0px"});ho.observe(out);}
+  }
+})();
+</script>
 </body>
 </html>
