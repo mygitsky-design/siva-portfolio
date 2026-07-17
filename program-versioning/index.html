@@ -247,9 +247,32 @@
           <blockquote class="opp-card__quote" data-reveal style="margin-top:var(--space-xl);font-size:var(--step-1)">
             &ldquo;Ability to edit Journey Orchestrator programs&rdquo;, upvoted across multiple Gainsight community threads, one of the longest-standing open feature requests in the product's history.
           </blockquote>
-          <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-2xl)">
-            <!-- TODO: replace placeholder with screenshot -->
-            <img src="/assets/versioning/ver-live-program.svg" width="1440" height="900" loading="lazy" alt="A published, Active program in read-only Model view: Audience, Email, a 10-day wait, and Not Opened / Opened branches into PX Engagement, no way to edit it in place." />
+          <figure class="figure" data-reveal style="margin-top:var(--space-2xl)">
+            <div class="mock">
+              <div class="mock__bar">
+                <span class="mock__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span class="mock__crumb">Programs / <b>Q3 Renewal Outreach</b></span>
+                <span style="margin-left:auto;display:flex;gap:0.5rem;align-items:center">
+                  <span class="status status--active">Active</span>
+                  <span class="status status--draft">Post Publish Edit Draft</span>
+                </span>
+              </div>
+              <div class="mock__body">
+                <div class="ppe-banner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path></svg>
+                  Editing a copy, the active program continues running unchanged until you re-publish.
+                </div>
+                <div class="flow-mock">
+                  <div class="flow-node"><span class="flow-node__name">Entry trigger · 247 participants</span><span class="flow-node__tag" style="color:var(--muted)">Source</span></div>
+                  <div class="flow-connector" aria-hidden="true"></div>
+                  <div class="flow-node"><span class="flow-node__name">Send email · Version A / B</span><span class="flow-node__tag" style="color:var(--muted)">Email</span></div>
+                  <div class="flow-connector" aria-hidden="true"></div>
+                  <div class="flow-node"><span class="flow-node__name">Delay · 3 days</span><span class="flow-node__tag" style="color:var(--muted)">Wait</span></div>
+                  <div class="flow-connector" aria-hidden="true"></div>
+                  <div class="flow-node"><span class="flow-node__name">Evaluate · 2 branches → End positive / End risk</span><span class="flow-node__tag" style="color:var(--muted)">Logic</span></div>
+                </div>
+              </div>
+            </div>
             <figcaption>Before: a published program was locked. Editing it meant cloning, losing analytics and disrupting active participants.</figcaption>
           </figure>
         </div>
