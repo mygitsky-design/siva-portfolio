@@ -212,25 +212,64 @@
     );
     map.forEach((_, sec) => io.observe(sec));
 
-    // Dot clicks use the browser's native anchor navigation. With
-    // `scroll-behavior: smooth` removed (see styles.css), that jump is instant
-    // and reliable; no JS scroll handling is needed or wanted here.
+    // Dot clicks: animate the scroll with rAF. Native smooth-scroll is broken on
+    // these pages (overflow bug), so we tween manually; preventDefault stops the
+    // instant native jump so the user sees the page move.
+    const NAV_OFFSET = 96; // matches scroll-padding-top (6rem)
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const id = link.getAttribute("href").slice(1);
+        const sec = document.getElementById(id);
+        if (!sec) return;
+        e.preventDefault();
+        const targetY = Math.max(0, sec.getBoundingClientRect().top + window.scrollY - NAV_OFFSET);
+        const startY = window.scrollY;
+        const dist = targetY - startY;
+        // Reliable native fragment jump (respects scroll-padding-top). Used for
+        // reduced motion and as a safety net if the tween stalls.
+        const jump = () => { location.hash = id; };
+        if (reduceMotion || Math.abs(dist) < 4) { jump(); return; }
+        const dur = Math.min(700, Math.max(320, Math.abs(dist) * 0.45));
+        let t0 = null;
+        const step = (ts) => {
+          if (t0 === null) t0 = ts;
+          const p = Math.min(1, (ts - t0) / dur);
+          window.scrollTo(0, startY + dist * easeOutCubic(p));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        // Guarantee arrival even if programmatic scrolling stalls.
+        setTimeout(() => {
+          if (Math.abs(window.scrollY - targetY) > 12) jump();
+          else history.replaceState(null, "", "#" + id);
+        }, dur + 160);
+      });
+    });
 
-    // Hide the progress dots once the Outcomes section is reached (or passed),
-    // so they don't sit over the CTA / footer reveal.
+    // Rail visibility: hidden over the hero, revealed once scrolled into the
+    // body, hidden again past the Outcomes / last section.
     const progress = document.querySelector(".cs-progress");
-    const outcomes = document.querySelector("[data-progress-hide]") || document.getElementById("outcomes");
-    if (progress && outcomes) {
-      const hideObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            const reachedOrPassed = e.isIntersecting || e.boundingClientRect.top < 0;
-            progress.classList.toggle("is-hidden", reachedOrPassed);
-          });
-        },
-        { rootMargin: "0px 0px -55% 0px" }
-      );
-      hideObs.observe(outcomes);
+    if (progress) {
+      const outcomes = document.querySelector("[data-progress-hide]") || document.getElementById("outcomes");
+      let pastOutcomes = false;
+      const revealAt = () => Math.min(window.innerHeight * 0.6, 600);
+      const updateRail = () => {
+        const nearTop = window.scrollY < revealAt();
+        progress.classList.toggle("is-hidden", nearTop || pastOutcomes);
+      };
+      if (outcomes) {
+        new IntersectionObserver(
+          (entries) => {
+            entries.forEach((en) => { pastOutcomes = en.isIntersecting || en.boundingClientRect.top < 0; });
+            updateRail();
+          },
+          { rootMargin: "0px 0px -55% 0px" }
+        ).observe(outcomes);
+      }
+      window.addEventListener("scroll", updateRail, { passive: true });
+      updateRail();
     }
   })();
 

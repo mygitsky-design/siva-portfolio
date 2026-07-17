@@ -1266,22 +1266,45 @@ document.addEventListener("DOMContentLoaded",function(){
 })();
 </script>
 <script>
-/* Section-progress rail active-state. This page has no shared script.js.
-   Dot clicks use native anchor navigation (scroll-behavior is no longer
-   smooth, so the jump is instant and reliable). */
+/* Section-progress rail: active-state, rAF smooth-scroll on click, and reveal
+   on scroll. This page has no shared script.js. Native smooth-scroll is broken
+   here (overflow bug), so the click scroll is tweened manually. */
 (function(){
   var links=[].slice.call(document.querySelectorAll(".cs-progress [data-section-link]"));
   if(!links.length) return;
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var NAV_OFFSET=96;
+  function ease(t){return 1-Math.pow(1-t,3);}
   var map=new Map();
   links.forEach(function(link){
     var sec=document.getElementById(link.getAttribute("href").slice(1));
     if(sec) map.set(sec,link);
+    link.addEventListener("click",function(e){
+      if(!sec) return;
+      e.preventDefault();
+      var id=link.getAttribute("href").slice(1);
+      var targetY=Math.max(0,sec.getBoundingClientRect().top+window.scrollY-NAV_OFFSET);
+      var startY=window.scrollY,dist=targetY-startY;
+      var jump=function(){location.hash=id;};
+      if(reduce||Math.abs(dist)<4){jump();return;}
+      var dur=Math.min(700,Math.max(320,Math.abs(dist)*0.45)),t0=null;
+      function step(ts){if(t0===null)t0=ts;var p=Math.min(1,(ts-t0)/dur);window.scrollTo(0,startY+dist*ease(p));if(p<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);
+      setTimeout(function(){if(Math.abs(window.scrollY-targetY)>12)jump();else history.replaceState(null,"","#"+id);},dur+160);
+    });
   });
   if(map.size){
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.classList.remove("is-active");});var lk=map.get(en.target);if(lk)lk.classList.add("is-active");}});},{rootMargin:"-45% 0px -45% 0px"});
     map.forEach(function(_,sec){io.observe(sec);});
     var prog=document.querySelector(".cs-progress"),out=document.querySelector("[data-progress-hide]")||document.getElementById("outcomes");
-    if(prog&&out){var ho=new IntersectionObserver(function(es){es.forEach(function(e){var passed=e.isIntersecting||e.boundingClientRect.top<0;prog.classList.toggle("is-hidden",passed);});},{rootMargin:"0px 0px -55% 0px"});ho.observe(out);}
+    if(prog){
+      var pastOut=false;
+      var revealAt=function(){return Math.min(window.innerHeight*0.6,600);};
+      var updateRail=function(){var nearTop=window.scrollY<revealAt();prog.classList.toggle("is-hidden",nearTop||pastOut);};
+      if(out){new IntersectionObserver(function(es){es.forEach(function(e){pastOut=e.isIntersecting||e.boundingClientRect.top<0;});updateRail();},{rootMargin:"0px 0px -55% 0px"}).observe(out);}
+      window.addEventListener("scroll",updateRail,{passive:true});
+      updateRail();
+    }
   }
 })();
 </script>
