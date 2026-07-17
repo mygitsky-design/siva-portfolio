@@ -217,23 +217,10 @@
        overflow setup), which left dots only updating the URL hash. rAF +
        scrollTo (auto) works reliably. */
     const NAV_OFFSET = 24;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const scrollToY = (targetY) => {
-      if (reduceMotion) { window.scrollTo({ top: targetY, behavior: "auto" }); return; }
-      const startY = window.scrollY;
-      const dist = targetY - startY;
-      const dur = Math.min(900, Math.max(300, Math.abs(dist) * 0.35));
-      let start = null;
-      const step = (ts) => {
-        if (start === null) start = ts;
-        const p = Math.min(1, (ts - start) / dur);
-        // Force "auto" per step: the page's CSS `scroll-behavior: smooth` is
-        // broken here, so let the rAF loop provide the smoothing instead.
-        window.scrollTo({ top: startY + dist * (1 - Math.pow(1 - p, 3)), behavior: "auto" });
-        if (p < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
+    // Native `scroll-behavior: smooth` fragment navigation no-ops on these pages
+    // (Chromium overflow bug), and an rAF-based tween is unreliable (throttled in
+    // background tabs). A single forced-auto scrollTo is instant but always works.
+    const scrollToY = (targetY) => window.scrollTo({ top: targetY, behavior: "auto" });
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         const id = link.getAttribute("href").slice(1);

@@ -1272,13 +1272,7 @@ document.addEventListener("DOMContentLoaded",function(){
 (function(){
   var links=[].slice.call(document.querySelectorAll(".cs-progress [data-section-link]"));
   if(!links.length) return;
-  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function scrollToY(t){
-    if(reduce){window.scrollTo({top:t,behavior:"auto"});return;}
-    var s=window.scrollY,d=t-s,dur=Math.min(900,Math.max(300,Math.abs(d)*0.35)),st=null;
-    function step(ts){if(st===null)st=ts;var p=Math.min(1,(ts-st)/dur);window.scrollTo({top:s+d*(1-Math.pow(1-p,3)),behavior:"auto"});if(p<1)requestAnimationFrame(step);}
-    requestAnimationFrame(step);
-  }
+  function scrollToY(t){window.scrollTo({top:t,behavior:"auto"});}
   var map=new Map();
   links.forEach(function(link){
     var sec=document.getElementById(link.getAttribute("href").slice(1));
