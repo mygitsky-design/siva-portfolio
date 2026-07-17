@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  /* No scroll-behavior:smooth — it no-ops here and broke anchor/dot navigation. */
   body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
   ::selection{background:#C9D2DE;color:#0E1116;}
 
@@ -1266,24 +1266,16 @@ document.addEventListener("DOMContentLoaded",function(){
 })();
 </script>
 <script>
-/* Section-progress rail: manual scroll + active-state. This page has no shared
-   script.js, and native `scroll-behavior: smooth` fragment navigation no-ops
-   here (Chromium overflow bug), so wire the dots up explicitly. */
+/* Section-progress rail active-state. This page has no shared script.js.
+   Dot clicks use native anchor navigation (scroll-behavior is no longer
+   smooth, so the jump is instant and reliable). */
 (function(){
   var links=[].slice.call(document.querySelectorAll(".cs-progress [data-section-link]"));
   if(!links.length) return;
-  function scrollToY(t){window.scrollTo({top:t,behavior:"auto"});}
   var map=new Map();
   links.forEach(function(link){
     var sec=document.getElementById(link.getAttribute("href").slice(1));
     if(sec) map.set(sec,link);
-    link.addEventListener("click",function(e){
-      if(!sec) return;
-      e.preventDefault();
-      var y=Math.max(0,sec.getBoundingClientRect().top+window.scrollY-24);
-      scrollToY(y);
-      history.replaceState(null,"","#"+link.getAttribute("href").slice(1));
-    });
   });
   if(map.size){
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.classList.remove("is-active");});var lk=map.get(en.target);if(lk)lk.classList.add("is-active");}});},{rootMargin:"-45% 0px -45% 0px"});

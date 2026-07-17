@@ -212,26 +212,9 @@
     );
     map.forEach((_, sec) => io.observe(sec));
 
-    /* Dot clicks: scroll manually. Native `scroll-behavior: smooth` fragment
-       navigation silently no-ops on these pages (Chromium bug with the page's
-       overflow setup), which left dots only updating the URL hash. rAF +
-       scrollTo (auto) works reliably. */
-    const NAV_OFFSET = 24;
-    // Native `scroll-behavior: smooth` fragment navigation no-ops on these pages
-    // (Chromium overflow bug), and an rAF-based tween is unreliable (throttled in
-    // background tabs). A single forced-auto scrollTo is instant but always works.
-    const scrollToY = (targetY) => window.scrollTo({ top: targetY, behavior: "auto" });
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const id = link.getAttribute("href").slice(1);
-        const sec = document.getElementById(id);
-        if (!sec) return;
-        e.preventDefault();
-        const y = Math.max(0, sec.getBoundingClientRect().top + window.scrollY - NAV_OFFSET);
-        scrollToY(y);
-        history.replaceState(null, "", "#" + id);
-      });
-    });
+    // Dot clicks use the browser's native anchor navigation. With
+    // `scroll-behavior: smooth` removed (see styles.css), that jump is instant
+    // and reliable; no JS scroll handling is needed or wanted here.
 
     // Hide the progress dots once the Outcomes section is reached (or passed),
     // so they don't sit over the CTA / footer reveal.
