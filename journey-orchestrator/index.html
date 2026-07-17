@@ -11,6 +11,8 @@
   *{box-sizing:border-box;}
   /* No scroll-behavior:smooth — it no-ops here and broke anchor/dot navigation. */
   body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .skip-link{position:absolute;left:16px;top:-100px;z-index:200;background:#15181E;color:#fff;padding:.7rem 1.1rem;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:top .2s ease;}
+  .skip-link:focus{top:16px;}
   ::selection{background:#C9D2DE;color:#0E1116;}
 
   :root{
@@ -382,6 +384,7 @@
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
   <!-- section progress rail -->
@@ -404,7 +407,7 @@
     <a href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #15181E;color:#15181E;font-size:13.5px;font-weight:600;">Let&rsquo;s talk</a>
   </header>
 
-<div style="font-family:'Archivo',sans-serif;background-color:#EEF0F3;color:#15181E;overflow-x:hidden;position:relative;z-index:2;border-bottom-left-radius:40px;border-bottom-right-radius:40px;">
+<main id="main" style="font-family:'Archivo',sans-serif;background-color:#EEF0F3;color:#15181E;overflow-x:hidden;position:relative;z-index:2;border-bottom-left-radius:40px;border-bottom-right-radius:40px;">
 
   <!-- hero -->
   <section id="overview" style="max-width:1240px;margin:0 auto;padding:96px 48px 0;">
@@ -1133,7 +1136,7 @@
     <div style="margin-top:38px;"><a class="jo-cta" href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:999px;background:#3C4A5E;color:#fff;font-size:16px;font-weight:600;">Get in touch <span>&rarr;</span></a></div>
   </section>
 
-</div>
+</main>
 
   <!-- footer -->
   <style>.cfoot a{transition:color .2s ease}.cfoot a:hover{color:#fff}</style>
@@ -1153,7 +1156,7 @@
         <a href="https://www.linkedin.com/in/siva-kiran-yellapragada-84770635/" target="_blank" rel="noopener noreferrer me" style="text-decoration:none;color:#AEB4BD;">LinkedIn</a>
       </div>
     </div>
-    <div style="max-width:1240px;margin:0 auto;padding:0 48px 56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid #2C333D;padding-top:28px;font-size:11px;color:#6B7480;">
+    <div style="max-width:1240px;margin:0 auto;padding:0 48px 56px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid #2C333D;padding-top:28px;font-size:11px;color:#828b98;">
       <span>&copy; 2026 siva. All rights reserved.</span>
       <span>Designed &amp; built from scratch, no page builders.</span>
     </div>
