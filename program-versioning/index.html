@@ -125,7 +125,7 @@
     <nav style="display:flex;gap:34px;font-size:14px;color:#3A414C;">
       <a href="/" style="text-decoration:none;color:inherit;">Home</a><a href="/work" style="text-decoration:none;color:#15181E;font-weight:600;">Work</a><a href="/about" style="text-decoration:none;color:inherit;">About</a>
     </nav>
-    <a href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #15181E;color:#15181E;font-size:13.5px;font-weight:600;">Let’s talk</a>
+    <a href="/about" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #15181E;color:#15181E;font-size:13.5px;font-weight:600;">Let’s talk</a>
   </header>
 
   <!-- Section progress nav -->
@@ -225,11 +225,32 @@
           <blockquote class="opp-card__quote" data-reveal style="margin-top:var(--space-xl);font-size:var(--step-1)">
             &ldquo;Ability to edit Journey Orchestrator programs&rdquo;, upvoted across multiple Gainsight community threads, one of the longest-standing open feature requests in the product's history.
           </blockquote>
-          <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-2xl)">
-            <img src="/assets/versioning/ver-live-program.svg" width="1440" height="900" loading="lazy" alt="A published, Active program in read-only Model view: Audience, Email, a 10-day wait, and Not Opened / Opened branches into PX Engagement, no way to edit it in place." />
-            <figcaption>Before: a published program was locked. Editing it meant cloning, losing analytics and disrupting active participants.</figcaption>
+          <figure class="figure figure--pad" data-reveal style="margin-top:var(--space-xl)">
+            <img src="/assets/versioning/programs-clone-menu.png" width="1440" height="900" loading="lazy" alt="The Programs list with the row actions menu open on an Active program: the only options are Clone, Analytics and Delete, with no Edit." />
+            <figcaption>On a published program the only actions were Clone, Analytics and Delete. There was no Edit, so changing anything meant duplicating the whole program.</figcaption>
           </figure>
         </div>
+      </section>
+
+      <!-- THE MODEL, BEFORE THE SCREENS -->
+      <section class="section section--tight" style="padding-bottom:var(--space-sm)">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow eyebrow--accent">The model, before the screens</span>
+            <h2>The strategy lived here, not in the UI</h2>
+            <p>Before a single screen, I mapped the full lifecycle, what a program is at each stage, and every transition between them. The hard decisions in this project were made on this canvas, in the PRD, before design started.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- lifecycle image (full-bleed dotted band, image centered) -->
+      <section style="margin:0;padding:0;">
+        <div style="width:100%;background-color:#EEF0F3;background-image:url('https://framerusercontent.com/images/1xYco4RseXtilQTiTjIm6fmQJPE.png?lossless=1&amp;width=120&amp;height=120');background-repeat:repeat;background-position:left top;background-size:60px;padding:20px 0 40px;box-sizing:border-box;">
+          <div class="container">
+            <img src="/assets/versioning/lifecycle.svg" alt="Program lifecycle map" style="display:block;width:100%;height:auto;">
+          </div>
+        </div>
+        <p style="margin:20px auto 0;max-width:1240px;padding:0 48px;text-align:center;font-size:14px;color:#8A929C;">The program lifecycle, designing the states and transitions before designing screens.</p>
       </section>
 
       <!-- CHALLENGE -->
@@ -266,14 +287,6 @@
             <figcaption>The model answered all three questions at once, surfaced right in the product: edit a draft copy, the live program runs untouched, syncing pauses, and steps can be added or skipped.</figcaption>
           </figure>
         </div>
-      </section>
-
-      <!-- lifecycle image (full-bleed dotted band, image centered) -->
-      <section style="margin:70px 0 0;padding:0;">
-        <div style="width:100%;background-color:#EEF0F3;background-image:url('https://framerusercontent.com/images/1xYco4RseXtilQTiTjIm6fmQJPE.png?lossless=1&amp;width=120&amp;height=120');background-repeat:repeat;background-position:left top;background-size:60px;padding:48px 0;">
-          <img src="/assets/versioning/shot-lifecycle.png" alt="Program lifecycle map" style="display:block;width:100%;max-width:2210px;height:auto;margin:0 auto;">
-        </div>
-        <p style="margin:20px auto 0;max-width:1240px;padding:0 48px;text-align:center;font-size:14px;color:#8A929C;">The program lifecycle, designing the states and transitions before designing screens.</p>
       </section>
 
       <!-- PHASES -->
@@ -333,17 +346,18 @@
           </div>
 
           <div data-stagger>
-            <div class="decision" data-reveal>
-              <div class="decision__n">01</div>
-              <div>
-                <h3>Editing happens on a copy</h3>
-                <p class="decision__r">Editing creates a copy of the active program. The live version keeps running with no interruption while admins work in a clearly labelled &lsquo;Post Publish Edit Draft&rsquo; state, a persistent amber banner reinforcing that they're editing a copy. <b>This framing removed the biggest source of admin anxiety:</b> fear of accidentally breaking something customers were already in.</p>
-                <span class="decision__takeaway">Safety by architecture, not by warning</span>
+            <div data-reveal style="border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface-2);box-shadow:0 22px 50px -24px rgba(20,28,40,0.30);display:flex;flex-direction:row;flex-wrap:wrap;align-items:stretch;">
+              <div style="flex:0 1 680px;max-width:100%;overflow:hidden;padding:36px 0 36px 36px;box-sizing:border-box;">
+                <img loading="lazy" src="/assets/versioning/ver-live-program.svg" width="1440" height="900" alt="A published, Active program in read-only Model view: Audience, Email, a 10-day wait, and Not Opened / Opened branches into PX Engagement, no way to edit it in place." style="display:block;width:100%;height:auto;border-radius:8px;">
+              </div>
+              <div style="flex:1 1 300px;padding:36px 40px;display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent-ink);">// Safety by architecture, not by warning</div>
+                <h4 style="margin:14px 0 0;font-size:24px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);">Editing happens on a copy</h4>
+                <p style="margin:12px 0 0;font-size:16px;line-height:1.55;color:var(--ink-2);">Editing creates a copy of the active program. The live version keeps running with no interruption while admins work in a clearly labelled &lsquo;Post Publish Edit Draft&rsquo; state, a persistent amber banner reinforcing that they're editing a copy. <b style="color:var(--ink)">This framing removed the biggest source of admin anxiety:</b> fear of accidentally breaking something customers were already in.</p>
               </div>
             </div>
 
-            <div class="decision" data-reveal>
-              <div class="decision__n">02</div>
+            <div class="decision" data-reveal style="grid-template-columns:1fr">
               <div>
                 <h3>Source editing with participant transparency</h3>
                 <p class="decision__r">When filters change, a green confirmation surfaces exactly how many new participants will be added on re-publish, with a clear note that existing participants are unaffected. Each source type carries distinct capabilities, surfaced <b>in context</b>, not buried in documentation.</p>
@@ -359,8 +373,7 @@
               </div>
             </div>
 
-            <div class="decision" data-reveal>
-              <div class="decision__n">03</div>
+            <div class="decision" data-reveal style="grid-template-columns:1fr">
               <div>
                 <h3>Steps are skipped, not deleted</h3>
                 <p class="decision__r">Hard-deleting a step orphans participants who already completed it and breaks analytics integrity. Instead, &lsquo;Skip step&rsquo; keeps the step in the flow but marks it skipped for future participants. A counterintuitive but critical decision that <b>came directly from deep collaboration with engineering</b> on participant state management.</p>
@@ -381,8 +394,7 @@
               </div>
             </div>
 
-            <div class="decision" data-reveal>
-              <div class="decision__n">04</div>
+            <div class="decision" data-reveal style="grid-template-columns:1fr">
               <div>
                 <h3>Cumulative analytics with version awareness</h3>
                 <p class="decision__r">Analytics across versions is genuinely hard, added steps reach only a subset of participants; skipped steps change paths. The decision: show cumulative performance by default, with a <b>&lsquo;filter by publish date&rsquo;</b> control to isolate version-specific behaviour. New and skipped steps are labelled inline.</p>
@@ -407,8 +419,7 @@
               </div>
             </div>
 
-            <div class="decision" data-reveal>
-              <div class="decision__n">05</div>
+            <div class="decision" data-reveal style="grid-template-columns:1fr">
               <div>
                 <h3>A publish summary before anything goes live</h3>
                 <p class="decision__r">Re-publishing overrides a live program and transitions participants, so the design treats it as a deliberate review moment. A summary modal surfaces every change, sources, new steps, skipped steps, analytics, with an explicit continuity guarantee before confirming. <b>This became the primary trust-building moment in the entire flow.</b></p>
@@ -603,7 +614,7 @@
         <div class="cta" data-reveal>
           <h2>Interested in working together?</h2>
           <p>I lead design that holds the whole system in view, from the PRD down to participant-state edge cases.</p>
-          <a class="btn btn--accent" href="/contact">Get in touch
+          <a class="btn btn--accent" href="/about">Get in touch
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>

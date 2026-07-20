@@ -52,40 +52,45 @@
     <nav style="display:flex;gap:34px;font-size:14px;color:#3A414C;">
       <a href="/" style="text-decoration:none;color:#15181E;font-weight:600;">Home</a><a href="/work" style="text-decoration:none;color:inherit;">Work</a><a href="/about" style="text-decoration:none;color:inherit;">About</a>
     </nav>
-    <a href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #15181E;color:#15181E;font-size:13.5px;font-weight:600;">Let’s talk</a>
+    <a href="/about" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #15181E;color:#15181E;font-size:13.5px;font-weight:600;">Let’s talk</a>
   </header>
 
   <main id="main">
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <span class="eyebrow eyebrow--accent" data-reveal>Product Design Leader · Enterprise SaaS</span>
-        <h1 class="hero__title" data-reveal>I lead design for SaaS products that teams depend on, but still work around.</h1>
-        <p class="hero__lead" data-reveal>
-          I'm Siva Kiran. For 15+ years, I've led design for enterprise products that grew complex over time, the kind
-          where teams create manual fixes, internal habits, and support processes around the product. I help product and
-          engineering understand what is actually broken, decide what to fix first, and stay close through delivery.
-        </p>
-        <div class="hero__actions" data-reveal>
+        <span class="eyebrow eyebrow--accent" data-reveal>Principal Product Designer · Enterprise SaaS</span>
+        <h1 class="hero__title" data-reveal style="max-width:24ch;font-size:clamp(1.8rem,1.2rem+2vw,2.9rem);line-height:1.14">I'm Siva Kiran, a Principal Product Designer with 15+ years designing enterprise SaaS products.</h1>
+        <p class="hero__lead" data-reveal style="max-width:56ch;margin-top:var(--space-lg)">I help organizations untangle complex products by transforming fragmented workflows, aligning teams around product strategy, and building systems that are easier to use, easier to maintain, and built to scale.</p>
+        <div class="hero__actions" data-reveal style="margin-top:var(--space-xl)">
           <a class="btn btn--accent" href="/work">
             View work
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn--ghost" href="/about">About me</a>
+          <a class="btn btn--ghost" href="/about">Get in touch</a>
         </div>
 
+        <!-- Career highlights (static, was a broken counter row) -->
         <div class="hero__meta" data-stagger>
           <div class="stat" data-reveal>
-            <div class="stat__value"><span data-count="15">0</span><span class="unit">+ yrs</span></div>
-            <div class="stat__label">IC to design leadership</div>
+            <div class="stat__value">15+</div>
+            <div class="stat__label">Years</div>
           </div>
           <div class="stat" data-reveal>
-            <div class="stat__value">Hands-on</div>
-            <div class="stat__label">Research &rarr; prototype &rarr; ship</div>
+            <div class="stat__value">9+</div>
+            <div class="stat__label">Years at Gainsight</div>
           </div>
           <div class="stat" data-reveal>
-            <div class="stat__value"><span data-count="15">0</span></div>
-            <div class="stat__label">Designers led, global team</div>
+            <div class="stat__value">15</div>
+            <div class="stat__label">Designers led</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__value">1st</div>
+            <div class="stat__label">Design system (Gainsight)</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__value">Lead</div>
+            <div class="stat__label">WCAG accessibility program</div>
           </div>
         </div>
       </div>
@@ -101,31 +106,45 @@
         <div class="grid grid--3" data-stagger>
           <article class="card card--hover" data-reveal>
             <h3>AI-native product development</h3>
-            <p>Finding the specific places where AI removes real friction, then building it into the flow rather than bolting it on. I look for where it earns its place, in the product and in how the team ships.</p>
+            <p>Finding where AI removes real friction and building it into the flow, not bolting it on.</p>
           </article>
           <article class="card card--hover" data-reveal>
             <h3>Design systems &amp; standards</h3>
-            <p>I treat reliability, versioning, and validation as design problems, so teams keep shipping consistent, error-resistant experiences as the product scales.</p>
+            <p>Reliability, versioning, and validation as design problems, so teams ship consistently as they scale.</p>
           </article>
           <article class="card card--hover" data-reveal>
             <h3>UX strategy &amp; research</h3>
-            <p>Mixed-method research with admins and executives, synthesised into evidence-backed, vote-ranked roadmaps the team can act on.</p>
+            <p>Mixed-method research synthesised into evidence-backed, vote-ranked roadmaps.</p>
           </article>
           <article class="card card--hover" data-reveal>
             <h3>Accessibility</h3>
-            <p>Accessibility treated as a baseline of product quality, built into the design system and its governance so it holds up as the product grows.</p>
+            <p>A baseline of product quality, built into the design system and its governance.</p>
           </article>
           <article class="card card--hover" data-reveal>
             <h3>Cross-functional leadership</h3>
-            <p>Aligning product, engineering, and technical-communication leaders on the same problem and a single roadmap, which is often where the real difficulty lies.</p>
+            <p>Aligning product, engineering, and comms leaders on one problem and one roadmap.</p>
           </article>
           <article class="card card--hover" data-reveal>
             <h3>Team building &amp; mentoring</h3>
-            <p>Managing and growing UX teams, mentoring through regular 1:1s, and keeping projects and stakeholders aligned as the team scales.</p>
+            <p>Growing and mentoring UX teams through 1:1s, keeping people and projects aligned.</p>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- HOW I WORK (condensed from the former About page) -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">How I work</span>
+          <h2>Starting with where the complexity comes from</h2>
+        </div>
+        <div class="prose" data-reveal style="max-width:var(--maxw-text)">
+          <p>I look at product problems beyond the immediate screen, starting with why the problem exists, who is affected, and what constraints the team faces. Often the issue isn't the interface, it's people working around limitations in the product. I bring the recurring issues together, align product and engineering on a practical direction, and stage the work so it ships in phases.</p>
+        </div>
+      </div>
+    </section>
+
 
     <!-- SELECTED WORK -->
     <section class="section csf" id="work">
@@ -302,63 +321,6 @@
           </div>
         </div>
 
-        <!-- connector -->
-        <div style="position:relative;margin-top:4px" aria-hidden="true">
-          <svg aria-hidden="true" viewBox="0 0 1000 96" preserveAspectRatio="none" style="display:block;width:100%;height:80px">
-            <path d="M500 0 L500 32" fill="none" stroke="rgba(129,140,248,.6)" stroke-width="2"/>
-            <path d="M500 32 C500 70 264 54 264 96" fill="none" stroke="rgba(99,102,241,.40)" stroke-width="2"/>
-            <path d="M500 32 C500 70 736 54 736 96" fill="none" stroke="rgba(99,102,241,.40)" stroke-width="2"/>
-          </svg>
-          <div style="position:absolute;top:26px;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:#818cf8;box-shadow:0 0 14px #818cf8"></div>
-        </div>
-
-        <div class="csf-caplabel" data-reveal style="display:flex;align-items:center;gap:14px;margin:4px 0 26px">
-          <span style="font:700 12px var(--font-sans);letter-spacing:.16em;color:#8a8a96">KEY CAPABILITIES</span>
-          <span style="font:400 12px var(--font-sans);color:#aeaeb8">two deep dives within Journey Orchestrator</span>
-          <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(20,20,45,.10),transparent)"></div>
-        </div>
-
-        <!-- capability cards -->
-        <div class="csf-caps" style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
-
-          <a href="/program-versioning" class="csf-cap" data-reveal style="position:relative;display:block;padding:30px;border-radius:22px;text-decoration:none;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfbfd);border:1px solid rgba(20,20,45,.08);box-shadow:0 24px 56px -28px rgba(30,30,70,.20)">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-              <span style="padding:5px 11px;border-radius:8px;background:rgba(99,102,241,.10);border:1px solid rgba(99,102,241,.18);color:#4f46e5;font:700 11px var(--font-sans);letter-spacing:.04em">Program Versioning</span>
-              <span style="font:600 11px var(--font-sans);letter-spacing:.1em;color:#aeaeb8">01</span>
-            </div>
-            <div style="position:relative;height:118px;border-radius:13px;background:rgba(20,20,45,.03);border:1px solid rgba(20,20,45,.07);overflow:hidden;margin-bottom:22px">
-              <svg aria-hidden="true" viewBox="0 0 360 118" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%">
-                <path d="M40 59 L150 59" stroke="rgba(20,20,45,.18)" stroke-width="2" fill="none"/>
-                <path d="M150 59 C200 59 200 30 250 30" stroke="rgba(129,140,248,.7)" stroke-width="2" fill="none" data-flowline/>
-                <path d="M150 59 L300 59" stroke="rgba(20,20,45,.18)" stroke-width="2" fill="none"/>
-              </svg>
-              <div style="position:absolute;top:49px;left:24px;width:20px;height:20px;border-radius:50%;background:#e7e7ee;border:2px solid #aeaeb8"></div>
-              <div style="position:absolute;top:49px;left:300px;width:20px;height:20px;border-radius:50%;background:#e7e7ee;border:2px solid #aeaeb8"></div>
-              <div style="position:absolute;top:20px;left:236px;padding:5px 9px;border-radius:7px;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.40);font:700 9px var(--font-sans);color:#4f46e5">draft v12</div>
-              <div style="position:absolute;bottom:10px;left:24px;font:600 9px var(--font-sans);color:#9a9aa4">live program</div>
-              <div style="position:absolute;bottom:10px;right:18px;font:600 9px var(--font-sans);color:#9a9aa4">published</div>
-            </div>
-            <h4 style="margin:0 0 9px;font-weight:700;font-size:1.45rem;line-height:1.12;letter-spacing:-.02em;color:#0b0b14">Branch, edit, publish, safely.</h4>
-            <p style="margin:0 0 18px;font-size:.85rem;line-height:1.65;color:#6a6a78">A copy-based draft model that let admins edit live programs without risk. Compare changes, then publish atomically, 100+ tickets shipped with zero active-program disruptions.</p>
-            <span class="csf-cta" style="display:inline-flex;align-items:center;gap:7px;font:700 13px var(--font-sans);color:#2a2a32">Read the deep dive <span style="color:#818cf8">&#8599;</span></span>
-          </a>
-
-          <a href="/program-testing" class="csf-cap csf-cap--violet" data-reveal style="position:relative;display:block;padding:30px;border-radius:22px;text-decoration:none;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfbfd);border:1px solid rgba(20,20,45,.08);box-shadow:0 24px 56px -28px rgba(30,30,70,.20)">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-              <span style="padding:5px 11px;border-radius:8px;background:rgba(167,139,250,.14);border:1px solid rgba(167,139,250,.3);color:#7c3aed;font:700 11px var(--font-sans);letter-spacing:.04em">Program Testing</span>
-              <span style="font:600 11px var(--font-sans);letter-spacing:.1em;color:#aeaeb8">02</span>
-            </div>
-            <div style="position:relative;height:118px;border-radius:13px;background:rgba(20,20,45,.03);border:1px solid rgba(20,20,45,.07);padding:14px;margin-bottom:22px">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px"><span style="font:600 10px var(--font-sans);color:#6a6a78">Dry-run preview</span><span style="display:flex;align-items:center;gap:6px;font:600 9px var(--font-sans);color:#a78bfa"><span style="width:6px;height:6px;border-radius:50%;background:#a78bfa;box-shadow:0 0 7px #a78bfa"></span>SIMULATING</span></div>
-              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span style="font:500 9px var(--font-sans);color:#9a9aa4;width:54px">Validate</span><div style="flex:1;height:7px;border-radius:4px;background:#a78bfa"></div></div>
-              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><span style="font:500 9px var(--font-sans);color:#9a9aa4;width:54px">Preview</span><div style="flex:1;height:7px;border-radius:4px;background:linear-gradient(90deg,#9b85ee 70%,rgba(20,20,45,.07) 70%)"></div></div>
-              <div style="display:flex;align-items:center;gap:9px"><span style="font:500 9px var(--font-sans);color:#9a9aa4;width:54px">Side-effects</span><div style="flex:1;height:7px;border-radius:4px;background:linear-gradient(90deg,#34d399 6%,rgba(20,20,45,.07) 6%)"></div><span style="font:600 9px var(--font-sans);color:#34d399">none</span></div>
-            </div>
-            <h4 style="margin:0 0 9px;font-weight:700;font-size:1.45rem;line-height:1.12;letter-spacing:-.02em;color:#0b0b14">Testing before publishing.</h4>
-            <p style="margin:0 0 18px;font-size:.85rem;line-height:1.65;color:#6a6a78">A dry-run simulation that let admins preview a program against real participants before publishing, with no live side effects. Scoped down from a broader vision to fit the release window.</p>
-            <span class="csf-cta" style="display:inline-flex;align-items:center;gap:7px;font:700 13px var(--font-sans);color:#2a2a32">Read the deep dive <span style="color:#a78bfa">&#8599;</span></span>
-          </a>
-        </div>
 
         <!-- ACCESSIBILITY : governance timeline -->
         <div class="csf-gov" data-reveal style="position:relative;margin-top:72px;border-radius:30px;overflow:hidden;border:1px solid rgba(20,20,45,.08);background:linear-gradient(125deg,#fff,#f6fbf8);box-shadow:0 60px 140px -56px rgba(30,30,70,.26),inset 0 1px 0 rgba(255,255,255,.7)">
@@ -425,36 +387,12 @@
           </div>
         </div>
 
-      </div>
-    </section>
+        <div data-reveal style="text-align:center;margin-top:56px">
+          <a class="btn btn--ghost" href="/work">View all work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
 
-    <!-- METRICS -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head" data-reveal style="margin-bottom:var(--space-lg)">
-          <span class="eyebrow eyebrow--accent">Featured impact · Journey Orchestrator</span>
-          <p>Outcomes from the case study below, not site-wide averages.</p>
-        </div>
-        <div class="metrics-band" data-stagger>
-          <div class="grid grid--metrics">
-            <div class="metric-card stat" data-reveal>
-              <div class="stat__value"><span data-count="58">0</span><span class="unit">%</span></div>
-              <div class="stat__label">Reduction in setup time</div>
-            </div>
-            <div class="metric-card stat" data-reveal>
-              <div class="stat__value">+<span data-count="30">0</span><span class="unit">%</span></div>
-              <div class="stat__label">User satisfaction</div>
-            </div>
-            <div class="metric-card stat" data-reveal>
-              <div class="stat__value">+<span data-count="12">0</span><span class="unit">%</span></div>
-              <div class="stat__label">Adoption &amp; engagement</div>
-            </div>
-            <div class="metric-card stat" data-reveal>
-              <div class="stat__value">&minus;<span data-count="12">0</span><span class="unit">%</span></div>
-              <div class="stat__label">Support tickets &amp; issues</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -465,7 +403,7 @@
           <span class="eyebrow eyebrow--accent" style="justify-content:center">Let's build</span>
           <h2>Looking for design leadership that drives outcomes?</h2>
           <p>I help teams turn ambiguous, organization-wide problems into strategy, aligned roadmaps, and shipped products.</p>
-          <a class="btn btn--accent" href="/contact">Start a conversation
+          <a class="btn btn--accent" href="/about">Start a conversation
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
