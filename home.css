@@ -65,8 +65,8 @@
 
 /* ---------- Content polish (glassy cards on the canvas) ---------- */
 .home-cine .hero { position: relative; overflow: clip; min-height: 84vh; display: flex; align-items: center; }
-.home-cine .eyebrow { padding: .32rem .7rem; border-radius: 999px;
-  background: linear-gradient(180deg, rgba(108,116,196,.10), rgba(108,116,196,.05)); border: 1px solid rgba(108,116,196,.18); }
+/* De-pilled: Home eyebrows are plain uppercase labels, matching About + case-study pages. */
+.home-cine .eyebrow { padding: 0; border: 0; background: none; }
 .home-cine .stat__value { background: linear-gradient(120deg, var(--ink) 32%, var(--hc-accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .home-cine .stat__value .unit { -webkit-text-fill-color: var(--hc-accent); color: var(--hc-accent); }
 .home-cine .card, .home-cine .work-card { border-radius: 16px; }
@@ -80,9 +80,9 @@
 :root[data-theme="dark"] .home-cine .metrics-band { background: rgba(28,28,36,.55); }
 .home-cine .btn--accent { background: #3c4a5e; }
 
-/* Home hero headline is now a longer identity statement, so size it down from the
-   short-headline display size (the split-text script strips inline font-size). */
-.home-cine .hero__title { font-size: clamp(1.7rem, 1.1rem + 1.9vw, 2.6rem); line-height: 1.18; max-width: 30ch; }
+/* Home hero headline is a longer identity statement; use the shared --step-4 rung
+   (not the short-headline --step-5 display size) rather than a bespoke clamp. */
+.home-cine .hero__title { font-size: var(--step-4); line-height: 1.16; max-width: 26ch; }
 
 /* Headline word entrance + magnetic CTA easing */
 .home-cine .hero__title .hc-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .04em; }

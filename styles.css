@@ -47,13 +47,15 @@
   --font-label: "IBM Plex Mono", ui-monospace, "SF Mono", "Menlo", monospace;
 
   /* Fluid type scale (≈1.2 minor-third, viewport-aware) */
-  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.92rem);
-  --step-0:  clamp(1.0rem,  0.96rem + 0.20vw, 1.10rem);
-  --step-1:  clamp(1.20rem, 1.12rem + 0.40vw, 1.45rem);
-  --step-2:  clamp(1.45rem, 1.30rem + 0.75vw, 1.95rem);
-  --step-3:  clamp(1.80rem, 1.55rem + 1.30vw, 2.70rem);
-  --step-4:  clamp(2.25rem, 1.85rem + 2.10vw, 3.70rem);
-  --step-5:  clamp(2.80rem, 2.10rem + 3.40vw, 5.20rem);
+  /* Fluid scale with even-px endpoints (min & max rounded to nearest even px;
+     the vw term keeps it responsive between those bounds). */
+  --step--1: clamp(14px, 0.80rem + 0.15vw, 14px);
+  --step-0:  clamp(16px, 0.96rem + 0.20vw, 18px);
+  --step-1:  clamp(20px, 1.12rem + 0.40vw, 24px);
+  --step-2:  clamp(24px, 1.30rem + 0.75vw, 32px);
+  --step-3:  clamp(28px, 1.55rem + 1.30vw, 44px);
+  --step-4:  clamp(36px, 1.85rem + 2.10vw, 60px);
+  --step-5:  clamp(44px, 2.10rem + 3.40vw, 84px);
 
   /* Spacing scale (4px base) */
   --space-2xs: 0.25rem;
@@ -396,6 +398,10 @@ figure { margin: 0; }
   background: var(--surface);
   border: 1px solid var(--line);
 }
+/* Uniform tile grid: screenshots/video have varied aspect ratios, so pin them to a common
+   16:9 box (contain, so nothing is cropped) to align the media across a side-by-side grid. */
+.tile-grid--uniform .figure--tile img,
+.tile-grid--uniform .figure--tile video { aspect-ratio: 16 / 9; height: auto; object-fit: contain; }
 .figure--tile video {
   width: 100%;
   height: auto;
@@ -1176,6 +1182,9 @@ figure { margin: 0; }
 .phase-card ul { display: grid; gap: 0.5rem; margin-top: auto; }
 .phase-card li { display: grid; grid-template-columns: auto 1fr; gap: 0.55rem; color: var(--ink-2); font-size: var(--step--1); }
 .phase-card li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin-top: 0.5em; }
+/* Reserve a consistent 2-line description height so the bullet lists start on the
+   same line across the side-by-side phase cards (stacked layout is unaffected). */
+@media (min-width: 761px) { .phase-card p { min-height: 3.3em; } }
 
 /* Shipped ledger table */
 .ledger { width: 100%; border-collapse: collapse; font-size: var(--step-0); }
@@ -1837,3 +1846,19 @@ figure { margin: 0; }
   .cv-panel { padding: 1.1rem !important; }
   .cs-metabar__group { flex: 0 1 auto; min-width: 0; white-space: normal; }
 }
+
+/* ---------- Theme toggle button (injected by script.js) ---------- */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; padding: 0;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: transparent; color: var(--ink); cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+  font-family: inherit; -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle:hover { border-color: var(--ink); }
+.theme-toggle svg { width: 18px; height: 18px; display: block; }
+.theme-toggle .tt-sun { display: none; }
+.theme-toggle .tt-moon { display: block; }
+.theme-toggle[data-mode="dark"] .tt-sun { display: block; }
+.theme-toggle[data-mode="dark"] .tt-moon { display: none; }
