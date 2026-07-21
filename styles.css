@@ -1092,6 +1092,8 @@ figure { margin: 0; }
 .exp-item__body > * + * { margin-top: var(--space-sm); }
 .exp-sub { font-size: var(--step-0); color: var(--ink); font-weight: 600; margin-top: var(--space-md) !important; }
 .exp-item__body p { color: var(--ink-2); }
+.exp-item__logos { display: flex; align-items: center; gap: 20px; height: 38px; margin-bottom: 10px; }
+.exp-item__logos img { height: 100%; width: auto; max-width: 163px; object-fit: contain; display: block; border-radius: 4px; }
 @media (max-width: 760px) { .exp-item { grid-template-columns: 1fr; gap: var(--space-xs); } .exp-item__when { padding-top: 0; } }
 
 /* Decision block (numbered, challenge → resolution) */
