@@ -9,59 +9,12 @@
   const root = document.documentElement;
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Theme toggle ---------- */
-  (function theme() {
-    const KEY = "sky-theme";
-
-    // Inject the toggle button into the header if it isn't in the markup,
-    // so every page gets it from one place. Grouped with the "Let's talk" CTA.
-    if (!document.querySelector("[data-theme-toggle]")) {
-      const header = document.querySelector(".site-header") || document.querySelector("header");
-      if (header) {
-        const b = document.createElement("button");
-        b.setAttribute("data-theme-toggle", "");
-        b.setAttribute("type", "button");
-        b.setAttribute("aria-label", "Toggle light or dark theme");
-        b.className = "theme-toggle";
-        b.innerHTML =
-          '<svg class="tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>' +
-          '<svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
-        const cta = Array.from(header.children).find(
-          (el) => el.tagName === "A" && /let.?s talk/i.test(el.textContent || "")
-        );
-        if (cta && cta.parentNode === header) {
-          const wrap = document.createElement("div");
-          wrap.style.cssText = "display:inline-flex;align-items:center;gap:14px;";
-          header.insertBefore(wrap, cta);
-          wrap.appendChild(b);
-          wrap.appendChild(cta);
-        } else {
-          header.appendChild(b);
-        }
-      }
-    }
-
-    const btn = document.querySelector("[data-theme-toggle]");
-    const saved = localStorage.getItem(KEY);
-    if (saved) root.setAttribute("data-theme", saved);
-
-    function current() {
-      const set = root.getAttribute("data-theme");
-      if (set) return set;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    function sync() {
-      if (btn) btn.dataset.mode = current();
-    }
-    sync();
-    if (btn) {
-      btn.addEventListener("click", () => {
-        const next = current() === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        localStorage.setItem(KEY, next);
-        sync();
-      });
-    }
+  /* ---------- Light-only (dark mode removed) ---------- */
+  (function forceLight() {
+    // The site is light-only. Ensure light regardless of OS preference and clear
+    // any theme a previous version may have saved. (Head script also sets this early.)
+    root.setAttribute("data-theme", "light");
+    try { localStorage.removeItem("sky-theme"); } catch (e) {}
   })();
 
   /* ---------- Mobile menu ---------- */

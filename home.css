@@ -86,7 +86,9 @@
 
 /* Headline word entrance + magnetic CTA easing */
 .home-cine .hero__title .hc-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .04em; }
-.home-cine .hero__title .hc-w__i { display: inline-block; will-change: transform; }
+/* No persistent will-change here: it kept 14 headline-word spans as permanent GPU
+   layers after the one-time entrance animation, adding scroll-compositing cost. */
+.home-cine .hero__title .hc-w__i { display: inline-block; }
 .home-cine .hero__actions .btn { transition: transform .28s var(--hc-ease), background .25s var(--hc-ease), box-shadow .25s var(--hc-ease); }
 
 /* ============================================================
